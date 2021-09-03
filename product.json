@@ -1,0 +1,25 @@
+{
+    "products": {
+        "-MigRtA8ntu1ojm9jLXV" : {
+            "imageUrl": "https://firebasestorage.googleapis.com/v0/b/e-commerce-shop-a31a6.appspot.com/o/shirt-man.jpg?alt=media&token=0c359307-31ca-43f0-9c84-34f5b80e7f98",
+            "title": "Shirt For Man",
+            "description": "Maboriosam in a nesciung eget magnae dapibus disting tloctio in the find it pereri odiy maboriosm.",
+            "price": "26.00",
+            "category": "Man"
+        },
+        "-MigRtA8ntu1ojm9jLXX" : {
+            "imageUrl": "https://firebasestorage.googleapis.com/v0/b/e-commerce-shop-a31a6.appspot.com/o/71Da-GQa9nL._AC_SL1100_.jpg?alt=media&token=04cf1dd8-f563-441b-8a92-8263eeaf224b",
+            "title": "Sport's Bag",
+            "description": "Rewrwe dsad sad asrwer weung eget magnae dapibus disting tloctio in the find it pereri odiy maboriosm.",
+            "price": "66.00",
+            "category": "Accessories"
+        },
+        "-MigRtA8ntu1ojm9jLXI" : {
+            "imageUrl": "https://firebasestorage.googleapis.com/v0/b/e-commerce-shop-a31a6.appspot.com/o/woman-shoes.jpg?alt=media&token=ed757fdc-e210-4685-bd2e-422c2ec123fa",
+            "title": "Woman  Shoes",
+            "description": "Ojlfdjf jiof oijfoidsjf jsdf jsdif isdjfsd ",
+            "price": "166.00",
+            "category": "Woman"
+        }
+    }
+}
