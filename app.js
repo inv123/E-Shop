@@ -1,5 +1,6 @@
 import page from './node_modules/page/page.mjs';
 import middleware from './middleware.js';
+import nav from './nav/nav.js';
 
 let navCont = document.querySelector('header');
 let sideBannerConnt = document.querySelector('.hero-slider');
@@ -16,7 +17,7 @@ let modal = document.querySelector('#exampleModal');
 
 middleware.initialize(navCont, sideBannerConnt,smallBannerSection, trendingItemContainer, mediumBannerContainer,hotItemContainer, yellowBannerContainer,onSaleBestSaleTopViewContainer,blogSectionContainer, shopServiceContainer, newsLetterContainer, modal);
 
-page('/', middleware.decorateContext);
+page('/', middleware.decorateContext, nav.getNav);
 
 page.start();
 
