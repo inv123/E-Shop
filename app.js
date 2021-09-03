@@ -16,7 +16,7 @@ let modal = document.querySelector('#exampleModal');
 
 middleware.initialize(navCont, sideBannerConnt,smallBannerSection, trendingItemContainer, mediumBannerContainer,hotItemContainer, yellowBannerContainer,onSaleBestSaleTopViewContainer,blogSectionContainer, shopServiceContainer, newsLetterContainer, modal);
 
-page('/', middleware.decorateContext)
+page('/', middleware.decorateContext);
 
 page.start();
 
