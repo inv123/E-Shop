@@ -1,7 +1,7 @@
 import {render} from './node_modules/lit-html/lit-html.js';
 
 let navCont = undefined;
-let sideBannerConnt = undefined;
+let sideBannerCont = undefined;
 let smallBannerSection = undefined;
 let trendingItemContainer = undefined;
 let mediumBannerContainer = undefined;
@@ -15,7 +15,7 @@ let modal = undefined;
 
 function initialize(navElement, sideBannerElement, smallBannerElement, trendingItemElement, mediumBannerElement, hotItemElement, yellowBannerElement,onSaleBestSaleTopViewElement, blogElement, shopServiceElement, newsLetterElement, modalElement){
     navCont = navElement;
-    sideBannerConnt = sideBannerElement;
+    sideBannerCont = sideBannerElement;
     smallBannerSection = smallBannerElement;
     trendingItemContainer = trendingItemElement;
     mediumBannerContainer = mediumBannerElement;
@@ -69,7 +69,7 @@ async function renderSmallBanner(template){
 }
 
 async function renderSideBanner(template){
-    render(template, sideBannerConnt)
+    render(template, sideBannerCont)
 }
 
 async function renderNav(template){
