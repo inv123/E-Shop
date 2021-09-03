@@ -1,7 +1,6 @@
 import {render} from './node_modules/lit-html/lit-html.js';
 
 let navCont = undefined;
-let viewCont = undefined;
 let sideBannerConnt = undefined;
 let smallBannerSection = undefined;
 let trendingItemContainer = undefined;
@@ -14,9 +13,8 @@ let shopServiceContainer = undefined;
 let newsLetterContainer = undefined;
 let modal = undefined;
 
-function initialize(navElement, viewElement, sideBannerElement, smallBannerElement, trendingItemElement, mediumBannerElement, hotItemElement, yellowBannerElement,onSaleBestSaleTopViewElement, blogElement, shopServiceElement, newsLetterElement, modalElement){
+function initialize(navElement, sideBannerElement, smallBannerElement, trendingItemElement, mediumBannerElement, hotItemElement, yellowBannerElement,onSaleBestSaleTopViewElement, blogElement, shopServiceElement, newsLetterElement, modalElement){
     navCont = navElement;
-    viewCont = viewElement;
     sideBannerConnt = sideBannerElement;
     smallBannerSection = smallBannerElement;
     trendingItemContainer = trendingItemElement;
@@ -78,9 +76,7 @@ async function renderNav(template){
     render(template, navCont);
 }
 
-async function renderView(template){
-    render(template, viewCont);
-}
+
 
 function decorateContext(context, next){
     context.renderNav = renderNav;
@@ -103,7 +99,6 @@ function decorateContext(context, next){
 export default {
     initialize, 
     renderNav,
-    renderView,
     renderSideBanner,
     renderSmallBanner,
     renderTrendingItem,
