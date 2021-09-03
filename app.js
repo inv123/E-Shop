@@ -11,9 +11,10 @@ import onSaleBestSale from './pages/homepage/onSaleBestSale/onSaleBestSale.js';
 import blogSection from './pages/homepage/blogSection/blogSection.js';
 import shopService from './pages/homepage/shopService/shopService.js';
 import newsLetter from './pages/homepage/newsLetter/newsLetter.js';
+import modal from './modal/modal.js'
 
 let navCont = document.querySelector('header');
-let sideBannerConnt = document.querySelector('section > .hero-slider');
+let sideBannerConnt = document.querySelector('.hero-slider');
 let smallBannerSection = document.querySelector('.small-banner');
 let trendingItemContainer = document.querySelector('.product-area');
 let mediumBannerContainer = document.querySelector('.medium-banner');
@@ -23,11 +24,11 @@ let onSaleBestSaleTopViewContainer = document.querySelector('.shop-home-list');
 let blogSectionContainer = document.querySelector('.shop-blog');
 let shopServiceContainer = document.querySelector('.shop-services');
 let newsLetterContainer = document.querySelector('.shop-newsletter');
-let modal = document.querySelector('#exampleModal');
+let modalElement = document.querySelector('#exampleModal');
 
-middleware.initialize(navCont, sideBannerConnt,smallBannerSection, trendingItemContainer, mediumBannerContainer,hotItemContainer, yellowBannerContainer,onSaleBestSaleTopViewContainer,blogSectionContainer, shopServiceContainer, newsLetterContainer, modal);
+middleware.initialize(navCont, sideBannerConnt,smallBannerSection, trendingItemContainer, mediumBannerContainer,hotItemContainer, yellowBannerContainer,onSaleBestSaleTopViewContainer,blogSectionContainer, shopServiceContainer, newsLetterContainer, modalElement);
 
-page('/', middleware.decorateContext, nav.getNav, sideBannerElement.getSideBanner, smallBanner.getSmallBanner, trendingItem.getTrendingItem, mediumBanner.getMediumBanner, hotItems.getHotItems, yellowBanner.getYellowBanner, onSaleBestSale.getOnSaleBestSale, blogSection.getBlogSection, shopService.getShopService, newsLetter.getNewsLetter);
+page('/', middleware.decorateContext, nav.getNav, sideBannerElement.getSideBanner, smallBanner.getSmallBanner, trendingItem.getTrendingItem, mediumBanner.getMediumBanner, hotItems.getHotItems, yellowBanner.getYellowBanner, onSaleBestSale.getOnSaleBestSale, blogSection.getBlogSection, shopService.getShopService, newsLetter.getNewsLetter, modal.getModal);
 
 page.start();
 

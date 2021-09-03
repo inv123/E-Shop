@@ -11,7 +11,7 @@ let onSaleBestSaleTopViewContainer = undefined;
 let blogSectionContainer = undefined;
 let shopServiceContainer = undefined;
 let newsLetterContainer = undefined;
-let modal = undefined;
+let modalCont = undefined;
 
 function initialize(navElement, sideBannerElement, smallBannerElement, trendingItemElement, mediumBannerElement, hotItemElement, yellowBannerElement,onSaleBestSaleTopViewElement, blogElement, shopServiceElement, newsLetterElement, modalElement){
     navCont = navElement;
@@ -25,11 +25,11 @@ function initialize(navElement, sideBannerElement, smallBannerElement, trendingI
     blogSectionContainer = blogElement;
     shopServiceContainer = shopServiceElement;
     newsLetterContainer = newsLetterElement;
-    modal = modalElement;
+    modalCont = modalElement;
 }
 
 async function renderModal(template){
-    render(template, modal)
+    render(template, modalCont)
 }
 
 async function renderNewsLetter(template){
