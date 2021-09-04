@@ -1,7 +1,7 @@
 import {html} from '../../../node_modules/lit-html/lit-html.js';
 
 export let loginTemaplte = (form) => html`
-<section id="login">
+<section id="login" >
                 <article class="narrow">
                     <header class="pad-med">
                         <h1>Login</h1>
