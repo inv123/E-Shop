@@ -4978,6 +4978,27 @@ Version:1.0
 	color:#fff;
 	text-decoration:underline;
 }
+
+#login{
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+}
+
+#login-form{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 50%;
+	margin-top: 50px;
+}
+#login-form input{
+	padding: 10px 30px;
+}
+
+#login-form label, #login-form input, #login footer{
+	margin-top: 30px;
+}
 /*=============================
 	End Footer CSS
 ===============================*/
