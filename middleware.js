@@ -80,7 +80,7 @@ async function renderNav(template){
 
 function decorateContext(context, next){
     context.renderNav = renderNav;
-
+    
     context.renderSideBanner = renderSideBanner;
     context.renderSmallBanner = renderSmallBanner;
     context.renderTrendingItem = renderTrendingItem;
