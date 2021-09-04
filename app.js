@@ -7,12 +7,11 @@ import homePage from './pages/homepage/homePage.js';
 
 
 let navCont = document.querySelector('header');
-let loginViewCont = document.querySelector('.view-page')
+let viewCont = document.querySelector('.view-page')
 
-middleware.initialize(navCont,  loginViewCont);
+middleware.initialize(navCont, viewCont);
 
 page('/', middleware.decorateContext, nav.getNav, homePage.getView);
-
 page('/login', middleware.decorateContext, loginNav.getLoginNav, loginPage.getLoginPage)
 
 page('/home', '/');

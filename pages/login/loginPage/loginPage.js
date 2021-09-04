@@ -26,7 +26,7 @@ async function getLoginPage(context){
         submitHandler: boundSubmitHandler
     }
 
-    context.renderLogin(loginTemaplte(form))
+    context.renderView(loginTemaplte(form))
 }
 
 export default{ 
