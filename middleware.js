@@ -1,6 +1,7 @@
 import {render} from './node_modules/lit-html/lit-html.js';
 
 let navCont = undefined;
+let loginViewCont = undefined;
 let sideBannerCont = undefined;
 let smallBannerSection = undefined;
 let trendingItemContainer = undefined;
@@ -11,9 +12,11 @@ let onSaleBestSaleTopViewContainer = undefined;
 let blogSectionContainer = undefined;
 let shopServiceContainer = undefined;
 let newsLetterContainer = undefined;
-let modalCont = undefined;
 
-function initialize(navElement, sideBannerElement, smallBannerElement, trendingItemElement, mediumBannerElement, hotItemElement, yellowBannerElement,onSaleBestSaleTopViewElement, blogElement, shopServiceElement, newsLetterElement, modalElement){
+
+
+
+function initialize(navElement, sideBannerElement, smallBannerElement, trendingItemElement, mediumBannerElement, hotItemElement, yellowBannerElement,onSaleBestSaleTopViewElement, blogElement, shopServiceElement, newsLetterElement, getLoginElement){
     navCont = navElement;
     sideBannerCont = sideBannerElement;
     smallBannerSection = smallBannerElement;
@@ -25,12 +28,13 @@ function initialize(navElement, sideBannerElement, smallBannerElement, trendingI
     blogSectionContainer = blogElement;
     shopServiceContainer = shopServiceElement;
     newsLetterContainer = newsLetterElement;
-    modalCont = modalElement;
+    loginViewCont = getLoginElement;
 }
 
-async function renderModal(template){
-    render(template, modalCont)
+async function renderLogin(template){
+    render(template, loginViewCont)
 }
+
 
 async function renderNewsLetter(template){
     render(template, newsLetterContainer)
@@ -80,7 +84,7 @@ async function renderNav(template){
 
 function decorateContext(context, next){
     context.renderNav = renderNav;
-    
+
     context.renderSideBanner = renderSideBanner;
     context.renderSmallBanner = renderSmallBanner;
     context.renderTrendingItem = renderTrendingItem;
@@ -91,7 +95,7 @@ function decorateContext(context, next){
     context.renderBlog = renderBlog;
     context.renderShopService = renderShopService;
     context.renderNewsLetter = renderNewsLetter;
-    context.renderModal = renderModal;
+    context.renderLogin = renderLogin;
 
     next();
 }
@@ -109,6 +113,6 @@ export default {
     renderBlog,
     renderShopService,
     renderNewsLetter,
-    renderModal,
+    renderLogin,
     decorateContext
 }
