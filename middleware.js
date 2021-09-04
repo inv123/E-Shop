@@ -3,11 +3,9 @@ import {render} from './node_modules/lit-html/lit-html.js';
 let navCont = undefined;
 let viewContainer = undefined;
 
-
 function initialize(navElement,viewElemenet){
     navCont = navElement;
     viewContainer = viewElemenet;
-   
 }
 
 
@@ -26,7 +24,6 @@ async function renderNav(template){
 function decorateContext(context, next){
     context.renderNav = renderNav;
    context.renderView = renderView;
-  
 
     next();
 }

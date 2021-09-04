@@ -1,4 +1,4 @@
-import userService from "../../service/userService.js";
+import userService from '../../../service/userService.js'
 import { loginTemaplte } from "./loginTemplate.js";
 
 let form = undefined;
@@ -19,7 +19,7 @@ async function submitHandler(context, e){
     context.page.redirect('/home')
 }
 
-async function getLoginPage(context){
+async function getView(context){
     let boundSubmitHandler = submitHandler.bind(null, context);
 
     form = {
@@ -30,5 +30,5 @@ async function getLoginPage(context){
 }
 
 export default{ 
-    getLoginPage
+    getView
 }
