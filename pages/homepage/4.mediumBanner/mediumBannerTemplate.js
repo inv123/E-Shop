@@ -1,6 +1,6 @@
 import {html} from '../../../node_modules/lit-html/lit-html.js';
 
-export let mediunBannerTemplate = () => html`
+export let mediumBannerTemplate = () => html`
 <div class="container">
 			<div class="row">
 				<!-- Single Banner  -->

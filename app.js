@@ -17,7 +17,7 @@ let navCont = document.querySelector('header');
 let sideBannerConnt = document.querySelector('.hero-slider');
 let smallBannerSection = document.querySelector('.small-banner');
 let trendingItemContainer = document.querySelector('.product-area');
-let mediumBannerContainer = document.querySelector('.medium-banner');
+let mediumBannerContainer = document.querySelector('.midium-banner');
 let hotItemContainer = document.querySelector('.most-popular');
 let yellowBannerContainer = document.querySelector('.free-version-banner');
 let onSaleBestSaleTopViewContainer = document.querySelector('.shop-home-list');
@@ -29,6 +29,8 @@ let modalElement = document.querySelector('#exampleModal');
 middleware.initialize(navCont, sideBannerConnt,smallBannerSection, trendingItemContainer, mediumBannerContainer,hotItemContainer, yellowBannerContainer,onSaleBestSaleTopViewContainer,blogSectionContainer, shopServiceContainer, newsLetterContainer, modalElement);
 
 page('/', middleware.decorateContext, nav.getNav, sideBannerElement.getSideBanner, smallBanner.getSmallBanner, trendingItem.getTrendingItem, mediumBanner.getMediumBanner, hotItems.getHotItems, yellowBanner.getYellowBanner, onSaleBestSale.getOnSaleBestSale, blogSection.getBlogSection, shopService.getShopService, newsLetter.getNewsLetter, modal.getModal);
+
+page('/home', '/');
 
 page.start();
 

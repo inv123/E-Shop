@@ -1,7 +1,7 @@
-import { mediunBannerTemplate } from "./mediumBannerTemplate.js";
+import { mediumBannerTemplate } from "./mediumBannerTemplate.js";
 
 async function getMediumBanner(context, next){
-    context.renderMediumBanner(mediunBannerTemplate());
+    context.renderMediumBanner(mediumBannerTemplate());
     next()
 }
 
