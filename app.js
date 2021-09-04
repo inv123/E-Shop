@@ -12,9 +12,10 @@ import blogSection from './pages/homepage/8.blogSection/blogSection.js';
 import shopService from './pages/homepage/9.shopService/shopService.js';
 import newsLetter from './pages/homepage/10.newsLetter/newsLetter.js';
 import loginPage from './pages/login/loginPage.js';
+import loginNav from './pages/login/loginNav/loginNav.js';
 
 let navCont = document.querySelector('header');
-let loginViewCont = document.querySelector('body')
+let loginViewCont = document.querySelector('.login-page')
 let sideBannerConnt = document.querySelector('.hero-slider');
 let smallBannerSection = document.querySelector('.small-banner');
 let trendingItemContainer = document.querySelector('.product-area');
@@ -31,7 +32,7 @@ middleware.initialize(navCont, sideBannerConnt,smallBannerSection, trendingItemC
 
 page('/', middleware.decorateContext, nav.getNav, sideBannerElement.getSideBanner, smallBanner.getSmallBanner, trendingItem.getTrendingItem, mediumBanner.getMediumBanner, hotItems.getHotItems, yellowBanner.getYellowBanner, onSaleBestSale.getOnSaleBestSale, blogSection.getBlogSection, shopService.getShopService, newsLetter.getNewsLetter);
 
-page('/login', middleware.decorateContext, nav.getNav, loginPage.getLoginPage)
+page('/login', middleware.decorateContext, loginNav.getLoginNav, loginPage.getLoginPage)
 
 page('/home', '/');
 

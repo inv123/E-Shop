@@ -1,12 +1,12 @@
 import {html} from '../../node_modules/lit-html/lit-html.js';
 
-export let loginTemaplte = (form) => html`
+export let loginTemaplte = () => html`
 <section id="login">
                 <article class="narrow">
                     <header class="pad-med">
                         <h1>Login</h1>
                     </header>
-                    <form id="login-form" class="main-form pad-large" @submit=${form.submitHandler}>
+                    <form id="login-form" class="main-form pad-large">
                         <div class="error"></div>
                         <label>E-mail: <input type="text" name="email"></label>
                         <label>Password: <input type="password" name="password"></label>
