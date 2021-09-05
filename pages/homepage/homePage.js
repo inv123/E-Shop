@@ -3,6 +3,27 @@ import { homePageTemplate } from "./homePageTemplate.js";
 
 let products = undefined;
 
+async function setActiveNavClass(context, e){
+    // e.preventDefault();
+    
+    e.currentTarget.querySelectorAll('li a').forEach(x => {
+        x.classList.remove('active');
+    });
+    e.target.classList.add('active'); 
+
+    e.currentTarget.closest('.product-info').querySelectorAll('#myTabContent .tab-pane').forEach(x => {
+        x.classList.remove('active')
+        x.classList.remove('show')
+        
+        if(x.id === e.target.textContent.toLowerCase()){
+            x.classList.add('active')
+            x.classList.add('show')
+        }
+    });
+  
+   
+}
+
 async function getView(context){
     let allProducts = await productServices.getAllProducts();
     let sidebanner = Object.values(allProducts).find(x => x.sidebannerdiscount === true);
@@ -11,7 +32,8 @@ async function getView(context){
     let womanProducts = Object.values(allProducts).filter(x => x.category === 'woman');
     let accessoriesProducts = Object.values(allProducts).filter(x => x.category === 'accessories');
     let essentialsProducts = Object.values(allProducts).filter(x => x.category === 'essentials');
-    
+    let pricesProducts = Object.values(allProducts).filter(x => x.category === 'prices');
+    let boundSetActiveNavClass = setActiveNavClass.bind(null, context)
 
     products = {
         sidebanner,
@@ -19,10 +41,12 @@ async function getView(context){
         kidsProducts,
         womanProducts,
         accessoriesProducts,
-        essentialsProducts
+        essentialsProducts,
+        pricesProducts,
+        setActiveNavClass: boundSetActiveNavClass
     }
 
-    console.log(products);
+
 
     context.renderView(homePageTemplate(products))
 }

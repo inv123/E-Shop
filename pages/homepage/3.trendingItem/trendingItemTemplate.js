@@ -1,6 +1,7 @@
 import {
 	html
 } from '../../../node_modules/lit-html/lit-html.js';
+import productServices from '../../../service/productServices.js';
 
 export let trendingItemTemplate = (products) => html `
 <div class="container">
@@ -16,7 +17,7 @@ export let trendingItemTemplate = (products) => html `
 						<div class="product-info">
 							<div class="nav-main">
 								<!-- Tab Nav -->
-								<ul class="nav nav-tabs" id="myTab" role="tablist">
+								<ul class="nav nav-tabs" id="myTab" role="tablist" @click=${products.setActiveNavClass}>
 									<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#man" role="tab">Man</a></li>
 									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#women" role="tab">Woman</a></li>
 									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#kids" role="tab">Kids</a></li>
@@ -26,7 +27,7 @@ export let trendingItemTemplate = (products) => html `
 								</ul>
 								<!--/ End Tab Nav -->
 							</div>
-							<div class="tab-content" id="myTabContent">
+							<div class="tab-content" id="myTabContent" >
 								<!-- Start Single Tab -->
 								<div class="tab-pane fade show active" id="man" role="tabpanel">
 									<div class="tab-single">
@@ -41,7 +42,7 @@ export let trendingItemTemplate = (products) => html `
 								</div>
 								<!--/ End Single Tab -->
 								<!-- Start Single Tab -->
-								<div class="tab-pane fade" id="women" role="tabpanel">
+								<div class="tab-pane fade" id="woman" role="tabpanel">
 									<div class="tab-single">
 										<div class="row">
 											
@@ -58,9 +59,9 @@ export let trendingItemTemplate = (products) => html `
 									<div class="tab-single">
 										<div class="row">
 											
-										${products.kidsProducts
+										${products.kidsProducts 
 											? html`${products.kidsProducts.map(x => singleCell(x))}` 
-											: html`<div class="no-items-available">No available items</div>`}
+											: html`<h2 >No available items</h2>`}
 
 										</div>
 									</div>
