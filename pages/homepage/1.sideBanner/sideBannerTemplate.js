@@ -1,7 +1,7 @@
 import {html} from '../../../node_modules/lit-html/lit-html.js'
 
 export let sideBannerTemplate = (item) => html`
-<div class="single-slider">
+<div class="single-slider"> 
 			<div class="container">
 				<div class="row no-gutters">
 					<div class="col-lg-9 offset-lg-3 col-12">
@@ -15,7 +15,11 @@ export let sideBannerTemplate = (item) => html`
 											<a href="/shop" class="btn">Shop Now!</a>
 										</div>
 									</div>
+									
 								</div>
+								<div class="hero-img">
+										<img src="${item.imageUrl}">
+									</div>
 							</div>
 						</div>
 					</div>

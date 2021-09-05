@@ -10,12 +10,12 @@ import { blogSectionTemplate } from './8.blogSection/blogSectionTemplate.js';
 import { shopServiceTemplate } from './9.shopService/shopServiceTemplate.js';
 import { newsLetterTemplate } from './10.newsLetter/newsLetterTemplate.js';
 
-export let homePageTemplate = () => html`
+export let homePageTemplate = (product, smallBanner) => html`
 <section class="hero-slider">
-    ${sideBannerTemplate()}
+    ${sideBannerTemplate(product)}
 </section>
 <section class="small-banner section">
-    ${smallBannerTemaplte()}
+    ${smallBannerTemaplte(smallBanner)}
 </section>
 <div class="product-area section">
     ${trendingItemTemplate()}
