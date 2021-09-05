@@ -10,15 +10,15 @@ import { blogSectionTemplate } from './8.blogSection/blogSectionTemplate.js';
 import { shopServiceTemplate } from './9.shopService/shopServiceTemplate.js';
 import { newsLetterTemplate } from './10.newsLetter/newsLetterTemplate.js';
 
-export let homePageTemplate = (product, smallBanner) => html`
+export let homePageTemplate = (product) => html`
 <section class="hero-slider">
     ${sideBannerTemplate(product)}
 </section>
 <section class="small-banner section">
-    ${smallBannerTemaplte(smallBanner)}
+    ${smallBannerTemaplte()}
 </section>
 <div class="product-area section">
-    ${trendingItemTemplate()}
+    ${trendingItemTemplate(product)}
 </div>
   <div class="midium-banner">
       ${mediumBannerTemplate()}

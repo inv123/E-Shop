@@ -3764,7 +3764,9 @@ tbody.collapse.show {
 .tab-content>.active {
     display: block
 }
-
+.no-items-available{
+    text-align: center;
+}
 .navbar {
     position: relative;
     display: -ms-flexbox;

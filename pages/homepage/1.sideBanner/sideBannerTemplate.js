@@ -9,8 +9,8 @@ export let sideBannerTemplate = (item) => html`
 							<div class="row">
 								<div class="col-lg-7 col-12">
 									<div class="hero-text">
-										<h1><span>UP TO 50% OFF </span>${item.title}</h1>
-										<p>${item.description}</p>
+										<h1><span>UP TO 50% OFF </span>${item.sidebanner.title}</h1>
+										<p>${item.sidebanner.description}</p>
 										<div class="button">
 											<a href="/shop" class="btn">Shop Now!</a>
 										</div>
@@ -18,7 +18,7 @@ export let sideBannerTemplate = (item) => html`
 									
 								</div>
 								<div class="hero-img">
-										<img src="${item.imageUrl}">
+										<img src="${item.sidebanner.imageUrl}">
 									</div>
 							</div>
 						</div>
