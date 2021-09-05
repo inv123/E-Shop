@@ -33,6 +33,10 @@ async function getView(context){
     let accessoriesProducts = Object.values(allProducts).filter(x => x.category === 'accessories');
     let essentialsProducts = Object.values(allProducts).filter(x => x.category === 'essentials');
     let pricesProducts = Object.values(allProducts).filter(x => x.category === 'prices');
+    let middlebanner = Object.values(allProducts).filter(x => x.middlebanner === true)
+
+
+
     let boundSetActiveNavClass = setActiveNavClass.bind(null, context)
 
     products = {
@@ -43,7 +47,8 @@ async function getView(context){
         accessoriesProducts,
         essentialsProducts,
         pricesProducts,
-        setActiveNavClass: boundSetActiveNavClass
+        setActiveNavClass: boundSetActiveNavClass,
+        middlebanner
     }
 
 

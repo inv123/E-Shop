@@ -21,7 +21,7 @@ export let homePageTemplate = (product) => html`
     ${trendingItemTemplate(product)}
 </div>
   <div class="midium-banner">
-      ${mediumBannerTemplate()}
+      ${mediumBannerTemplate(product)}
   </div>
   <div class="product-area most-popular section">
       ${hotItemsTemplate()}
