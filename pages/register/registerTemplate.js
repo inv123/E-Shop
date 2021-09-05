@@ -7,7 +7,7 @@ export let registerTemplate = (form) => html`
                         <h1>Register</h1>
                     </header>
                     <form id="register-form" class="main-form pad-large" @submit=${form.submitHandler}>
-                        <!-- <div class="error">${form.error}</div> -->
+                        <div class="error"></div>
                         <label>E-mail: <input type="text" name="email"></label>
                         <label>Password: <input type="password" name="password"></label>
                         <label>Repeat: <input type="password" name="repass"></label>

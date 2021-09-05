@@ -10,22 +10,33 @@ async function submitHandler(context, e){
     let email = formData.get('email');
     let password = formData.get('password');
     let repearPass = formData.get('repass');
+    let error = e.target.querySelector('.error');
 
-    form = {
-        email,
-        password
+    if(!email || !password || !repearPass){
+      context.renderView(registerTemplate(form));
+       error.textContent = 'All fields required!'
+    }else if(password !== repearPass){
+        context.renderView(registerTemplate(form));
+         error.textContent = 'Password did not matched!'
+    }else{
+
+        form = {
+            email,
+            password
+        }
+
+        let registerUser = await userService.register(form);
+    context.page.redirect('/')
     }
-
-    let registerUser = await userService.register(form);
-    context.page.redirect('/');
 }
 
 async function getView(context){
     let boundSubmitHandler = submitHandler.bind(null, context);
-
+    
     form = {
         submitHandler: boundSubmitHandler
     }
+  
     context.renderView(registerTemplate(form))
 }
 
