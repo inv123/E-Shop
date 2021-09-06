@@ -1591,6 +1591,7 @@ Version:1.0
 ========================================*/ 
 .midium-banner{
 	padding:0;
+	margin-bottom: 100px;
 }
 .midium-banner .single-banner{
 	position:relative;
