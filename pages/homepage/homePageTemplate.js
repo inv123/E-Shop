@@ -26,7 +26,7 @@ export let homePageTemplate = (product) => html`
       ${yellowBannerTemplate()}
   </section>
   <section class="shop-home-list section">
-      ${onSaleBestSaleTemplate()}
+      ${onSaleBestSaleTemplate(product)}
   </section>
   <section class="shop-blog section">
       ${blogSectionTemplate()}
