@@ -4,7 +4,7 @@ import { homePageTemplate } from "./homePageTemplate.js";
 let products = undefined;
 
 async function setActiveNavClass(context, e){
-    // e.preventDefault();
+   
     
     e.currentTarget.querySelectorAll('li a').forEach(x => {
         x.classList.remove('active');
