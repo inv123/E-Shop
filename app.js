@@ -5,6 +5,8 @@ import loginPage from './pages/login/loginPage/loginPage.js';
 import loginNav from './pages/login/loginNav/loginNav.js';
 import homePage from './pages/homepage/homePage.js';
 import registerPage from './pages/register/registerPage.js';
+import productsPage from './pages/products/productsPage.js';
+
 
 
 let navCont = document.querySelector('header');
@@ -13,9 +15,12 @@ let viewCont = document.querySelector('.view-page')
 middleware.initialize(navCont, viewCont);
 
 page('/', middleware.decorateContext, nav.getNav, homePage.getView);
-page('/login', middleware.decorateContext, loginNav.getLoginNav, loginPage.getView)
-page('/register', middleware.decorateContext, loginNav.getLoginNav, registerPage.getView)
-page('/logout', async (context) => {await localStorage.clear(); context.page.redirect('/')})
+page('/products', middleware.decorateContext, nav.getNav, productsPage.getView);
+page('/login', middleware.decorateContext, loginNav.getLoginNav, loginPage.getView);
+page('/register', middleware.decorateContext, loginNav.getLoginNav, registerPage.getView);
+page('/logout', async (context) => {await localStorage.clear(); context.page.redirect('/')});
+
+
 
 page('/home', '/');
 page('/index.html', '/')

@@ -1,6 +1,6 @@
 import {html} from '../node_modules/lit-html/lit-html.js';
 
-export let navTemplate = () => html`
+export let navTemplate = (navSearch) => html`
 <div class="topbar">
 			<div class="container">
 				<div class="row">
@@ -46,17 +46,7 @@ export let navTemplate = () => html`
 						</div>
 						<!--/ End Logo -->
 						<!-- Search Form -->
-						<div class="search-top">
-							<div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
-							<!-- Search Form -->
-							<div class="search-top">
-								<form class="search-form">
-									<input type="text" placeholder="Search here..." name="search">
-									<button value="search" type="submit"><i class="ti-search"></i></button>
-								</form>
-							</div>
-							<!--/ End Search Form -->
-						</div>
+					
 						<!--/ End Search Form -->
 						<div class="mobile-nav"></div>
 					</div>
@@ -64,8 +54,8 @@ export let navTemplate = () => html`
 						<div class="search-bar-top">
 							<div class="search-bar">
 								
-								<form>
-									<input name="search" placeholder="Search Products Here....." type="search">
+								<form @submit=${navSearch.search}>
+									<input name="search" placeholder="Search Products Here....." type="text">
 									<button class="btnn"><i class="ti-search"></i></button>
 								</form>
 							</div>

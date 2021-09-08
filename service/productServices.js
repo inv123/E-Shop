@@ -5,6 +5,8 @@ async function getAllProducts(){
     return req.json();
 }
 
+
+
 export default {
     getAllProducts
 }
