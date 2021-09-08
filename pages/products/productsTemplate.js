@@ -32,7 +32,7 @@ export let productsTemplate = (products, item) => html `
 			</section>
 			
     <div class="container-fluid">
-		<div class="row">
+		<div class="row" style="padding: 100px 0">
 			
 
 
@@ -50,7 +50,7 @@ export let productsTemplate = (products, item) => html `
 let singleProd = (product) => html `
 <div class="col-lg-4 col-12">
 					<div class="single-banner tab-height">
-						<img src="${product.imageUrl}" alt="mid-season">
+						<img src="${product.imageUrl}" alt="mid-season" style="max-width: 300px">
 						<div class="content">
 							<h3>${product.title}</h3>
                             <p>${product.price}</p>
