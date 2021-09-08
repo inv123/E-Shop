@@ -15,7 +15,7 @@ let viewCont = document.querySelector('.view-page')
 middleware.initialize(navCont, viewCont);
 
 page('/', middleware.decorateContext, nav.getNav, homePage.getView);
-page('/products', middleware.decorateContext, nav.getNav, productsPage.getView);
+page('/shop', middleware.decorateContext, nav.getNav, productsPage.getView);
 page('/login', middleware.decorateContext, loginNav.getLoginNav, loginPage.getView);
 page('/register', middleware.decorateContext, loginNav.getLoginNav, registerPage.getView);
 page('/logout', async (context) => {await localStorage.clear(); context.page.redirect('/')});

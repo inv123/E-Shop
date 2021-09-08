@@ -10,7 +10,7 @@ async function search(context, e){
         console.log(searchParams);
         if(searchParams.trim() !== ''){
             let encodedSearch = encodeURIComponent(searchParams)
-            context.page.redirect(`/products?search=${encodedSearch}`)
+            context.page.redirect(`/shop?search=${encodedSearch}`)
         }        
 }
 
