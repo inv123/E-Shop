@@ -17,12 +17,17 @@ async function search(context, e){
 
 async function getNav(context, next){
     let boundSearch = search.bind(null, context);
+    let allProducts = await productServices.getAllProducts();
+    let navKids = Object.values(allProducts).find(x => x.navKids === true);
+    let navMan = Object.values(allProducts).find(x => x.navMan === true);
+    let navWoman = Object.values(allProducts).find(x => x.navWoman === true);
+    
 
     navSearch = {
         search: boundSearch
     }
 
-    context.renderNav(navTemplate(navSearch));
+    context.renderNav(navTemplate(navSearch, navKids, navMan, navWoman));
     next();
 }
 

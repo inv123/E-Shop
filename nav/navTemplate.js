@@ -1,6 +1,6 @@
 import {html} from '../node_modules/lit-html/lit-html.js';
 
-export let navTemplate = (navSearch) => html`
+export let navTemplate = (navSearch, navKids, navMan, navWoman) => html`
 <div class="topbar">
 			<div class="container">
 				<div class="row">
@@ -120,67 +120,52 @@ export let navTemplate = (navSearch) => html`
 							<div class="all-category">
 								<h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
 								<ul class="main-category">
-									<li><a href="#">New Arrivals <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+									<li><a href="/shop/new-arrival">New Arrivals <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 										<ul class="sub-category">
-											<li><a href="#">accessories</a></li>
-											<li><a href="#">best selling</a></li>
-											<li><a href="#">top 100 offer</a></li>
-											<li><a href="#">sunglass</a></li>
-											<li><a href="#">watch</a></li>
-											<li><a href="#">man’s product</a></li>
-											<li><a href="#">ladies</a></li>
-											<li><a href="#">westrn dress</a></li>
-											<li><a href="#">denim </a></li>
+											<li><a href="/shop/new-arrival/accessories">accessories</a></li>
+											<li><a href="/shop/new-arrival/best-selling">best selling</a></li>
+											<li><a href="/shop/new-arrival/top-100-offer">top 100 offer</a></li>
+											<li><a href="/shop/new-arrival/sunglass">sunglass</a></li>
+											<li><a href="/shop/new-arrival/watch">watch</a></li>
+											<li><a href="/shop/new-arrival/mans-product">man’s product</a></li>
+											<li><a href="/shop/new-arrival/ladies">ladies</a></li>
+											<li><a href="/shop/new-arrival/western-dress">western dress</a></li>
+											<li><a href="/shop/new-arrival/denim">denim </a></li>
 										</ul>
 									</li>
-									<li class="main-mega"><a href="#">best selling <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+									<li class="main-mega"><a href="/shop/new-arrival/best-selling">best selling <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 										<ul class="mega-menu">
 											<li class="single-menu">
-												<a href="#" class="title-link">Shop Kid's</a>
+												<a href="/shop/kids" class="title-link">Shop Kid's</a>
 												<div class="image">
-													<img src="https://via.placeholder.com/225x155" alt="#">
+													<img src="${navKids.imageUrl}" alt="Kids">
 												</div>
-												<div class="inner-link">
-													<a href="#">Kids Toys</a>
-													<a href="#">Kids Travel Car</a>
-													<a href="#">Kids Color Shape</a>
-													<a href="#">Kids Tent</a>
-												</div>
+												
 											</li>
 											<li class="single-menu">
-												<a href="#" class="title-link">Shop Men's</a>
+												<a href="/shop/man" class="title-link">Shop Men's</a>
 												<div class="image">
-													<img src="https://via.placeholder.com/225x155" alt="#">
+													<img src="${navMan.imageUrl}" alt="Man">
 												</div>
-												<div class="inner-link">
-													<a href="#">Watch</a>
-													<a href="#">T-shirt</a>
-													<a href="#">Hoodies</a>
-													<a href="#">Formal Pant</a>
-												</div>
+												
 											</li>
 											<li class="single-menu">
-												<a href="#" class="title-link">Shop Women's</a>
+												<a href="/shop/woman" class="title-link">Shop Women's</a>
 												<div class="image">
-													<img src="https://via.placeholder.com/225x155" alt="#">
+													<img src="${navWoman.imageUrl}" alt="Woman">
 												</div>
-												<div class="inner-link">
-													<a href="#">Ladies Shirt</a>
-													<a href="#">Ladies Frog</a>
-													<a href="#">Ladies Sun Glass</a>
-													<a href="#">Ladies Watch</a>
-												</div>
+												
 											</li>
 										</ul>
 									</li>
-									<li><a href="#">accessories</a></li>
-									<li><a href="#">top 100 offer</a></li>
-									<li><a href="#">sunglass</a></li>
-									<li><a href="#">watch</a></li>
-									<li><a href="#">man’s product</a></li>
-									<li><a href="#">ladies</a></li>
-									<li><a href="#">westrn dress</a></li>
-									<li><a href="#">denim </a></li>
+									<li><a href="/shop/accessories">accessories</a></li>
+									<li><a href="/shop/top-100-offer">top 100 offer</a></li>
+									<li><a href="/shop/sunglass">sunglass</a></li>
+									<li><a href="/shop/watch">watch</a></li>
+									<li><a href="/shop/man">man’s product</a></li>
+									<li><a href="/shop/woman">ladies</a></li>
+									<li><a href="/shop/western-dress">western dress</a></li>
+									<li><a href="/shop/denim">denim </a></li>
 								</ul>
 							</div>
 						</div>
