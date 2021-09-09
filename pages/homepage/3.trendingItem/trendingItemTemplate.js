@@ -133,7 +133,7 @@ let singleCell = (product) => html `
 														</div>
 													</div>
 													<div class="product-content">
-														<h3><a href="product-details.html">Women Hot Collection</a></h3>
+														<h3><a href="product-details.html">${product.title}</a></h3>
 														<div class="product-price">
 															<span>$${product.price}</span>
 														</div>
