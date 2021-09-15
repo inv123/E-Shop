@@ -5040,13 +5040,15 @@ Version:1.0
 .flex-shop{
 	display: flex;
 	justify-content: space-between;
-	flex-wrap: nowrap;
+	
+}
+.flex-shop .row{
+	width: 80%;
 }
 
 .aside-container{
-	min-width: 200px;
-	max-width: 250px;
-	padding: 100px 0;
+	width: 20%;
+	padding: 100px 20px;
 	
 }
 

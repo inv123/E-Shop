@@ -1,28 +1,28 @@
-import {html} from '../../node_modules/lit-html/lit-html.js'
+import {html} from '../../node_modules/lit-html/lit-html.js';
 
 export let shopTemplate = (products) => html `
 
 <div class="container">
 	<div class="container-fluid">
 		<div class="flex-shop">
-			<div class="aside-container">
+			<aside class="aside-container">
 				<div class="filter-nav-shop">
 					<h4>Filter</h4>
 					<div class="price-box">
 						<div class="fifty-filter checkbox-price">
-							<a href="/"><input type="checkbox"> $ 1-50 Products</a>
+							<a href="/shop?search=price%3D1-50"><input type="checkbox"> $ 1-50 Products</a>
 						</div>
 
 						<div class="hundred-filter checkbox-price">
-							<a href="/"><input type="checkbox"> $ 51-100 Products</a>
+							<a href="/shop?search=price%3D51-100"><input type="checkbox"> $ 51-100 Products</a>
 						</div>
 
 						<div class="hunder-ninty-nine-filter checkbox-price">
-							<a href="/"><input type="checkbox"> $ 101-199 Products</a>
+							<a href="/shop?search=price%3D101-199"><input type="checkbox" > $ 101-199 Products</a>
 						</div>
 					</div>
 				</div>
-			</div>
+			</aside>
 			<div class="row" style="padding: 100px 0">
 					<!-- Single Banner  -->			
 					${products.map(x => singleShopTemplate(x))}
