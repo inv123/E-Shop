@@ -1,5 +1,5 @@
 import productServices from "../../service/productServices.js";
-import { productsTemplate } from "./productsTemplate.js";
+import {shopTemplate } from "./shopTemplate.js";
 
 async function getView(context){
     
@@ -9,11 +9,11 @@ async function getView(context){
     if(context.querystring){
         let searchedTitle = decodeURIComponent(context.querystring).split('=')[1];
 
-        context.renderView(productsTemplate(Object.values(products).filter(x => x.title === searchedTitle), sidebanner))
+        context.renderView(shopTemplate(Object.values(products).filter(x => x.title === searchedTitle), sidebanner))
         
         
     }else{
-        context.renderView(productsTemplate(Object.values(products), sidebanner))
+        context.renderView(shopTemplate(Object.values(products), sidebanner))
     }
 
     

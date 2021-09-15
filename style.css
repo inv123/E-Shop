@@ -789,10 +789,13 @@ Version:1.0
 	-moz-box-shadow: 0px 5px 15px #0000000a;
 	box-shadow: 0px 5px 15px #0000000a;
 }
-.cat-heading:hover + .main-category{
-	display: block;
+
+.header.shop .all-category:hover  .main-category{
+	display: block ;
 	transition: 0.4s ease;
 }
+
+
 .header.shop .main-category li{
 	display:block;
 	border-bottom:1px solid #f6f6f6;
@@ -5033,6 +5036,32 @@ Version:1.0
 #login, #register{
 	background:#f5f5f5
 }
+
+.flex-shop{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+}
+
+.aside-container{
+	min-width: 200px;
+	max-width: 250px;
+	padding: 100px 0;
+	
+}
+
+.filter-nav-shop{
+	border-right: 1px solid #424646;
+	
+}
+
+.price-box{
+	width: 100%;
+	
+	margin: 30px 0;
+	padding: 10px 0;
+}
+
 /*=============================
 	End Footer CSS
 ===============================*/
