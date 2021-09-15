@@ -1,6 +1,7 @@
 import {html} from '../node_modules/lit-html/lit-html.js';
+import {ifDefined} from '../node_modules/lit-html/directives/if-defined.js';
 
-export let navTemplate = (navSearch, navKids, navMan, navWoman) => html`
+export let navTemplate = (navInfo, navSearch, navKids, navMan, navWoman) => html`
 <div class="topbar">
 			<div class="container">
 				<div class="row">
@@ -176,19 +177,19 @@ export let navTemplate = (navSearch, navKids, navMan, navWoman) => html`
 									<div class="navbar-collapse">	
 										<div class="nav-inner">	
 											<ul class="nav main-menu menu navbar-nav">
-													<li class="active"><a href="/home">Home</a></li>
+													<li class=${ifDefined(navInfo.currentPage.startsWith('/home') ? 'active' : undefined)}><a href="/">Home</a></li>
 													
-													<li><a href="/shop">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
+													<li class=${ifDefined(navInfo.currentPage.startsWith('/shop') ? 'active' : undefined)}><a href="/shop">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
 														<ul class="dropdown">
 															<li><a href="/cart">Cart</a></li>
 															<li><a href="/checkout">Checkout</a></li>
 														</ul>
 													</li>
-													<li><a href="/about">About</a></li>									
-													<li><a href="/blog">Blog</a>
+													<li class=${ifDefined(navInfo.currentPage.startsWith('/about') ? 'active' : undefined)}><a href="/about">About</a></li>									
+													<li class=${ifDefined(navInfo.currentPage.startsWith('/blog') ? 'active' : undefined)}><a href="/blog">Blog</a>
 														
 													</li>
-													<li><a href="contact.html">Contact Us</a></li>
+													<li class=${ifDefined(navInfo.currentPage.startsWith('/contacts') ? 'active' : undefined)}><a href="contact.html">Contact Us</a></li>
 												</ul>
 										</div>
 									</div>

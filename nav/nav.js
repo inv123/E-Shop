@@ -21,13 +21,15 @@ async function getNav(context, next){
     let navKids = Object.values(allProducts).find(x => x.navKids === true);
     let navMan = Object.values(allProducts).find(x => x.navMan === true);
     let navWoman = Object.values(allProducts).find(x => x.navWoman === true);
-    
+    let navInfo = {
+        currentPage: context.pathname
+    }
 
     navSearch = {
         search: boundSearch
     }
 
-    context.renderNav(navTemplate(navSearch, navKids, navMan, navWoman));
+    context.renderNav(navTemplate(navInfo, navSearch, navKids, navMan, navWoman));
     next();
 }
 
