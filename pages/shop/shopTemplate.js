@@ -1,6 +1,6 @@
 import {html} from '../../node_modules/lit-html/lit-html.js';
 
-export let shopTemplate = (products) => html `
+export let shopTemplate = ( shopInfo) => html `
 
 <div class="container">
 	<div class="container-fluid">
@@ -8,7 +8,8 @@ export let shopTemplate = (products) => html `
 			<div>
 				<h4>Sorting Items</h4>
 			</div>
-			<select class="select" name="sort">
+			<select class="select" name="sort"  @change=${shopInfo.sortHandling}>
+				<option>Select...</option>	
 				<option value="latest">Latest</option>	
 				<option value="ascending">Price Ascending</option>
 				<option value="descending">Price Descending</option>
@@ -35,7 +36,7 @@ export let shopTemplate = (products) => html `
 			</aside>
 			<div class="row" style="padding: 100px 0">
 					<!-- Single Banner  -->			
-					${products.map(x => singleShopTemplate(x))}
+					${shopInfo.products.map(x => singleShopTemplate(x))}
 					<!-- /End Single Banner  -->
 			</div>
 		</div>
