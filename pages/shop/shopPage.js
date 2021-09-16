@@ -8,7 +8,7 @@ async function getView(context) {
     let products = await productServices.getAllProducts();
     let key = decodeURIComponent(context.path).split('=')[1];
     let value = decodeURIComponent(context.path).split('=')[2];
-    console.log(key);
+  
     if (key) {
 
         if (key === 'price') {
@@ -27,8 +27,6 @@ async function getView(context) {
     } else {
         context.renderView(shopTemplate(Object.values(products)))
     }
-
-    console.log(context);
 
 }
 export default {

@@ -4,6 +4,16 @@ export let shopTemplate = (products) => html `
 
 <div class="container">
 	<div class="container-fluid">
+		<div class="sorting">
+			<div>
+				<h4>Sorting Items</h4>
+			</div>
+			<select class="select" name="sort">
+				<option value="latest">Latest</option>	
+				<option value="ascending">Price Ascending</option>
+				<option value="descending">Price Descending</option>
+			</select>
+		</div>
 		<div class="flex-shop">
 			<aside class="aside-container">
 				<div class="filter-nav-shop">
