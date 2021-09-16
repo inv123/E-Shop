@@ -56,7 +56,7 @@ async function getView(context) {
             }
         } else {
             products = Object.values(allProducts).filter(x => x.title === searchKey);
-            context.renderView(shopTemplate( shopInfo))
+            context.renderView(shopTemplate(shopInfo))
         }
 
 
@@ -66,6 +66,15 @@ async function getView(context) {
     }
 
 }
+
+function sortAscending(currentProducts){
+    return currentProducts.sort((a,b) => a -b)
+}
+
+function sortDescending(currentProducts){
+    return currentProducts.sort((a,b) => b-a)
+}
+
 export default {
     getView
 }
