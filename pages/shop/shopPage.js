@@ -1,39 +1,54 @@
 import productServices from "../../service/productServices.js";
 import { shopTemplate } from "./shopTemplate.js";
 
-let shopInfo = {};
-let products = undefined;
+let shopInfo = {
+    products: undefined
+};
+let checkboxIndex = undefined;
+
 
 // Shop Page
 async function getView(context) {
-    let allProducts = await productServices.getAllProducts();
-    products = Object.values(allProducts);
-    let boundFilterHandler = filterHandler.bind(null, context)
+    let path = context.path;
+    let boundFilterHandler = filterHandler.bind(null, context);
+  
+    shopInfo.filterHandler = boundFilterHandler;
+    shopInfo.checkboxIndex = checkboxIndex;
+    shopInfo.path = path;
 
-    shopInfo = {
-        products,
-        filterHandler: boundFilterHandler
+    if(context.path === '/shop'){
+        let allProducts = await productServices.getAllProducts();
+        shopInfo.products = Object.values(allProducts);
+    }else if(context.path.includes('/shop?search=price%3D1-50')){
+        let firstFilterProd = await productServices.getFilteredProducts(undefined, 50);
+        shopInfo.products = Object.values(firstFilterProd);
+        
+    }else if(context.path.includes('/shop?search=price%3D51-100')){
+        let secondFilterProd = await productServices.getFilteredProducts(51, 100);
+        shopInfo.products = Object.values(secondFilterProd)
+    }else if(context.path.includes('/shop?search=price%3D101-199')){
+        let thirdFilterProd = await productServices.getFilteredProducts(101, 199);
+        shopInfo.products = Object.values(thirdFilterProd);
     }
-    
-    context.renderView(shopTemplate(shopInfo))
-    
+   
+    context.renderView(shopTemplate(shopInfo));
 }
 
 
-// Filter Price
 async function filterHandler(context, e){
-    e.preventDefault();
-
-    let start = e.target.dataset.start;
-    let end = e.target.dataset.end;
-    let filterProdObj = await productServices.getFilteredProducts(start, end);
-    let filterProd = Object.values(filterProdObj);
+   let checkbox = e.currentTarget.querySelector('input');
+   let allCheckboxes =  [...e.currentTarget.closest('.price-box').querySelectorAll('input')]
+   
+   if(checkbox.checked){
+       checkbox.checked = false;
+       context.page.redirect('/shop')
+   }else{
+        allCheckboxes.forEach(x => x.checked = false);
+        checkbox.checked = true;
+      
+   }
     
-    shopInfo.products = filterProd;
-
-    context.renderView(shopTemplate(shopInfo))
 }
-
 
 
 
