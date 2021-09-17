@@ -8,7 +8,7 @@ export let shopTemplate = (shopInfo) => html `
 			<div>
 				<h4>Sorting Items</h4>
 			</div>
-			<select class="select" name="sort">
+			<select class="select" name="sort" @change=${shopInfo.sortHandler}>
 				<option>Select...</option>	
 				<option value="latest" >Latest</option>	
 				<option value="ascending">Price Ascending</option>
@@ -44,9 +44,16 @@ export let shopTemplate = (shopInfo) => html `
 				</div>
 			</aside>
 			<div class="row" style="padding: 100px 0">
-					<!-- Single Banner  -->			
-					${shopInfo.products.map(x => singleShopTemplate(x))}
-					<!-- /End Single Banner  -->
+					<!-- Products  -->			
+					${shopInfo.path.includes('?sort=ascending') ? html`${shopInfo.products.sort((a,b) => a.price - b.price).map(x => singleShopTemplate(x))}` : ''}
+
+					${shopInfo.path.includes('?sort=descending') ? html`${shopInfo.products.sort((a,b) => b.price - a.price).map(x => singleShopTemplate(x))}` : ''}
+
+					${shopInfo.path.includes('?sort=latest') ? html`${shopInfo.products.sort((a,b) => b.dateAdded - a.dateAdded).map(x => singleShopTemplate(x))}` : ''}
+
+					${!shopInfo.path.includes('?sort') ? html`${shopInfo.products.map(x => singleShopTemplate(x))}` : ''}
+					
+					<!-- /End Products  -->
 			</div>
 		</div>
 	</div>
