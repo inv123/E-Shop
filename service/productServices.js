@@ -20,11 +20,22 @@ async function getProductsUpTo199(){
     return req.json();
 }
 
+async function getFilteredProducts(start, end){
+    let query = `?orderBy="price"&startAt=${start}&endAt=${end}`;
+    if(start === undefined){
+        query = `?orderBy="price"&endAt=${end}`;
+    }
+    let req = await fetch(baseUrl + query);
+    return req.json();
+
+}
+
 
 
 export default {
     getAllProducts,
     getProductsUpTo50,
     getProductsUpTo100,
-    getProductsUpTo199
+    getProductsUpTo199,
+    getFilteredProducts
 }
