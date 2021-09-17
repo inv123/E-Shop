@@ -4,6 +4,7 @@ import { shopTemplate } from "./shopTemplate.js";
 let shopInfo = {};
 let products = undefined;
 
+// Shop Page
 async function getView(context) {
     let allProducts = await productServices.getAllProducts();
     products = Object.values(allProducts);
@@ -18,9 +19,11 @@ async function getView(context) {
     
 }
 
+
+// Filter Price
 async function filterHandler(context, e){
     e.preventDefault();
-    
+
     let start = e.target.dataset.start;
     let end = e.target.dataset.end;
     let filterProdObj = await productServices.getFilteredProducts(start, end);
@@ -30,6 +33,8 @@ async function filterHandler(context, e){
 
     context.renderView(shopTemplate(shopInfo))
 }
+
+
 
 
 export default {
