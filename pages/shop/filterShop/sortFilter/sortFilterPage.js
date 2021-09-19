@@ -25,7 +25,7 @@ async function getView(context) {
     }else if(sortParam === 'ascending'){
         shopInfo.products = shopInfo.products.sort((a,b) => a.price - b.price);
     }else if(sortParam === 'descending'){
-        shopInfo.products = shopInfo.products.sort((a,b) => b.price - a.price);
+        shopInfo.products = shopInfo.products.sort((a,b) => Number(a.price) - Number(b.price));
     }
 
     context.renderView(sortFilterShopTemplate(shopInfo))
@@ -33,9 +33,12 @@ async function getView(context) {
 
 async function sortHandler(context, e){
     let value = e.target.value;
-    console.log(context);
-    console.log(e.target.value);
-    context.page.redirect(`${context.path}/sort=${value}`)
+    let query = context.params.priceRange;
+    
+    if(value ==='Select...'){
+        return;
+    }
+    context.page.redirect(`/shop/price/${query}/sort=${value}`)
 }
 
 export default {
