@@ -12,14 +12,14 @@ export let sideBannerTemplate = (item) => html`
 										<h1><span>UP TO 50% OFF </span>${item.sidebanner.title}</h1>
 										<p>${item.sidebanner.description}</p>
 										<div class="button">
-											<a href="/shop" class="btn">Shop Now!</a>
+											<a href="/item/${item.sidebanner.id}" class="btn">Shop Now!</a>
 										</div>
 									</div>
 									
 								</div>
 								<div class="hero-img">
-										<img src="${item.sidebanner.imageUrl}">
-									</div>
+									<img src="${item.sidebanner.imageUrl}">
+								</div>
 							</div>
 						</div>
 					</div>

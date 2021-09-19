@@ -5,21 +5,6 @@ async function getAllProducts(){
     return req.json();
 }
 
-async function getProductsUpTo50(){
-    let req = await fetch(baseUrl + '?orderBy="price"&endAt=50');
-    return req.json();
-}
-
-async function getProductsUpTo100(){
-    let req = await fetch(baseUrl + '?orderBy="price"&startAt=51&endAt=100');
-    return req.json();
-}
-
-async function getProductsUpTo199(){
-    let req = await fetch(baseUrl + '?orderBy="price"&startAt=101&endAt=199');
-    return req.json();
-}
-
 async function getFilteredProducts(start, end){
     let query = `?orderBy="price"&startAt=${start}&endAt=${end}`;
     if(start === undefined){
@@ -27,15 +12,19 @@ async function getFilteredProducts(start, end){
     }
     let req = await fetch(baseUrl + query);
     return req.json();
-
 }
 
+async function getCurrentItem(itemId){
+    let query = `?orderBy="id"&equalTo="${itemId}"`;
+   
+    let req = await fetch(baseUrl + query);
+    return req.json();
+    
+}
 
 
 export default {
     getAllProducts,
-    getProductsUpTo50,
-    getProductsUpTo100,
-    getProductsUpTo199,
-    getFilteredProducts
+    getFilteredProducts,
+    getCurrentItem
 }
