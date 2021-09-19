@@ -17,16 +17,22 @@ async function getView(context) {
     let filterProducts = await productServices.getFilteredProducts(start, end);
     shopInfo.products = Object.values(filterProducts);
 
-   
+    let boundSortHandler = sortHandler.bind(null, context);
+    shopInfo.sortHandler = boundSortHandler;
+
 
     context.renderView(filterShopTemplate(shopInfo))
 }
 
-async function sortHandler(context, e){
+ function sortHandler(context, e){
+    let pathname = context.pathname
     let value = e.target.value;
     console.log(context);
-    console.log(e.target.value);
-    context.page.redirect(`${context.path}/sort=${value}`)
+    
+    if(value === 'Select...'){
+        return;
+    }
+    context.page.redirect(`${pathname}/sort=${value}`)
 }
 
 export default {

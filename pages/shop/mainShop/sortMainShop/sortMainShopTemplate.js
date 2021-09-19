@@ -1,6 +1,6 @@
-import {html} from '../../../node_modules/lit-html/lit-html.js';
+import {html} from '../../../../node_modules/lit-html/lit-html.js';
 
-export let shopTemplate = (shopInfo) => html `
+export let sortMainShopTemplate = (shopInfo) => html `
 
 <div class="container">
 	<div class="container-fluid">
@@ -10,9 +10,9 @@ export let shopTemplate = (shopInfo) => html `
 			</div>
 			<select class="select" name="sort" @change=${shopInfo.sortHandler}>
 				<option>Select...</option>	
-				<option value="sort=latest" >Latest</option>	
-				<option value="sort=ascending">Price Ascending</option>
-				<option value="sort=descending">Price Descending</option>
+				<option value="latest">Latest</option>	
+				<option value="ascending">Price Ascending</option>
+				<option value="descending">Price Descending</option>
 			</select>
 		</div>
 		<div class="flex-shop">
