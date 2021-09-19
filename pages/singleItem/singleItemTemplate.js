@@ -2,19 +2,28 @@ import {html} from '../../node_modules/lit-html/lit-html.js';
 
 export let singleItemTemplate = (item) => html`
     <div class="container">
-        <div class="product-wrapper">
+        <div class="single-product-wrapper">
             <div class="prod-img">
-                <img src="${item.imageUrl}">
+                <img src="${item.imageUrl}" >
             </div>
             <div class="options">
                 <nav>
                     <a href="/home">Home</a>
-                    "&nbsp;/&nbsp;"
+                    &nbsp;/&nbsp;
                     <a href="/shop">Shop</a>
-                    "&nbsp;/&nbsp;${item.title}"
+                    &nbsp;/&nbsp;<span class="select-breadcrumbs">${item.title}</span>
                 </nav>
-                <h4>${item.title}</h4>
-                <h5>$ ${item.price}</h5>
+                <h2>${item.title}</h2>
+                <h4>$ ${item.price}</h4>
+                <p>${item.description}</p>
+                <div class="select-quantity">
+                    <div class="quantity">
+                        <a class="plus-quantity" href="javascript:void(0)">-</a>
+                        <input type="number" min="1" max value="1" step="1" >
+                        <a class="plus-quantity" href="javascript:void(0)" >+</a>
+                    </div>
+                    <button type="submit" name="add-to-cart">Add to cart</button>
+                </div>
             </div>
         </div>
     </div>

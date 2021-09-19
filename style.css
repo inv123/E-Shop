@@ -5085,6 +5085,65 @@ Version:1.0
 .select{
 	padding: 5px;
 }
+
+.single-product-wrapper{
+	display: flex;
+	justify-content: space-evenly;
+	margin: 200px 0;
+}
+
+.prod-img img{
+	transform: scale(1.5);
+}
+
+.select-quantity{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: baseline;
+	margin-top: 50px;
+}
+
+.quantity{
+	display: inline-flex;
+	
+	vertical-align: baseline;
+}
+
+.quantity a, .quantity input{
+	display: flex;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	align-items: center;
+	border: none;
+	
+}
+
+.quantity input{
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+.quantity a{
+	background: #989898;
+}
+
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.select-quantity button{
+	margin-left: 50px;
+	padding: 0 30px;
+	border-radius: 0;
+	border: none;
+	background: #f7941d;
+	color: #000000;
+	font-weight: bold;
+}
 /*=============================
 	End Footer CSS
 ===============================*/
