@@ -10,6 +10,7 @@ import filterShop from './pages/shop/filterShop/filterShop.js';
 import sortFilterPage from './pages/shop/filterShop/sortFilter/sortFilterPage.js';
 import sortMainShopPage from './pages/shop/mainShop/sortMainShop/sortMainShopPage.js';
 import singleItemPage from './pages/singleItem/singleItemPage.js';
+import cartPage from './pages/cart/cartPage.js';
 
 
 let navCont = document.querySelector('header');
@@ -24,12 +25,13 @@ page('/logout', async (context) => {await localStorage.clear(); context.page.red
 
 page('/item/:id', middleware.decorateContext, nav.getNav, singleItemPage.getView);
 
-
 page('/shop', middleware.decorateContext, nav.getNav, shopPage.getView);
 page('/shop/price/:priceRange', middleware.decorateContext, nav.getNav, filterShop.getView);
 page('/shop/price/:priceRange/:sort', middleware.decorateContext, nav.getNav, sortFilterPage.getView);
-
 page('/shop/:sort', middleware.decorateContext, nav.getNav, sortMainShopPage.getView);
+
+page('/cart', middleware.decorateContext, nav.getNav, cartPage.getView);
+
 
 
 

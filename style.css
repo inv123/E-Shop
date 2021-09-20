@@ -5144,6 +5144,10 @@ Version:1.0
 	color: #000000;
 	font-weight: bold;
 }
+
+.quantity .hidden-price{
+	display: none;
+}
 /*=============================
 	End Footer CSS
 ===============================*/

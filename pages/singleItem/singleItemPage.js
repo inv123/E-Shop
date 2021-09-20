@@ -41,8 +41,16 @@ async function addToCart(context, e){
     let formData = new FormData(e.target);
     let counter = formData.get('count');
     let price = formData.get('price');
+
+    let currentProductInfoResponse = await productServices.getCurrentItem(productId);
+    let currentProductInfo = Object.values(currentProductInfoResponse)[0];
+   
+    let description = currentProductInfo.description;
+    let imageUrl = currentProductInfo.imageUrl;
+    let title = currentProductInfo.title;
     
-    let req = await productServices.addToCartProduct(userId, productId, counter, price);
+    
+    let req = await productServices.addToCartProduct(userId, productId, counter, price, description, imageUrl, title, productId);
     console.log(req);
     
     context.renderView(singleItemTemplate(itemInfo))
