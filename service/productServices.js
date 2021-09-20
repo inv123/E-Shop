@@ -21,7 +21,7 @@ async function getCurrentItem(itemId){
     return req.json();
 }
 
-async function addToCartProduct(user, item, count, price, description, imageUrl, title, id){
+async function addToCartProduct(user, item, count, price, description, imageUrl, title, id, totalPrice){
     let reqBody = {};
     reqBody[item] = {};
     reqBody[item]["count"] = count;
@@ -30,6 +30,7 @@ async function addToCartProduct(user, item, count, price, description, imageUrl,
     reqBody[item]["imageUrl"] = imageUrl;
     reqBody[item]["title"] = title;
     reqBody[item]["id"] = id;
+    reqBody[item]["totalPrice"] = totalPrice;
     let req = await fetch(baseUrl +`/addToCart/${user}/items.json/`, {
         method: 'PATCH',
         headers: {

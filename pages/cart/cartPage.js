@@ -7,7 +7,7 @@ async function getView(context){
 
     let userId = localStorage.getItem('userId');
     let myProductsResponse = await productServices.getCartProducts(userId);
-    let myProducts = Object.values(myProductsResponse)[0];
+    let myProducts = Object.values(myProductsResponse);
 
     let boundTotalPrice = totalPrice.bind(null, context);
     myProducts.totalPrice = boundTotalPrice;
