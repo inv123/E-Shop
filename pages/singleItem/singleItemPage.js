@@ -33,13 +33,17 @@ function plusMinus(context, e){
     }
 }
 
- function addToCart(context, e){
-
+async function addToCart(context, e){
     e.preventDefault();
 
-    let formData = new FormData(e.target)
-    let counter = formData.get('count')
-    console.log(counter);
+    let userId = localStorage.getItem('userId');
+    let productId = context.params.id;
+    let formData = new FormData(e.target);
+    let counter = formData.get('count');
+    let price = formData.get('price');
+    
+    let req = await productServices.addToCartProduct(userId, productId, counter, price);
+    console.log(req);
     
     context.renderView(singleItemTemplate(itemInfo))
     

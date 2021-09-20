@@ -17,10 +17,11 @@ export let singleItemTemplate = (itemInfo) => html`
                 <h4>$ ${itemInfo.currentItem.price}</h4>
                 <p>${itemInfo.currentItem.description}</p>
                 ${localStorage.getItem('authToken')
-                ? html` <form>
-                            <div class="select-quantity" @submit=${itemInfo.addToCart}>
+                ? html` <form @submit=${itemInfo.addToCart}>
+                            <div class="select-quantity" >
                                 <div class="quantity">
                                     <a class="minus-quantity" href="javascript:void(0)" @click=${itemInfo.plusMinus}>-</a>
+                                    <input class=hidden-price value=${itemInfo.currentItem.price} name="price">
                                     <input type="number" min="1" max value="1" step="1" name="count">
                                     <a class="plus-quantity" href="javascript:void(0)" @click=${itemInfo.plusMinus}>+</a>
                                 </div>
