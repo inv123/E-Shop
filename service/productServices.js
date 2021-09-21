@@ -32,7 +32,7 @@ async function addToCartProduct(user, item, count, price, description, imageUrl,
     reqBody[item]["id"] = id;
     reqBody[item]["totalPrice"] = totalPrice;
     let req = await fetch(baseUrl +`/addToCart/${user}/items.json/`, {
-        method: 'Put',
+        method: 'Post',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -58,7 +58,7 @@ async function updateCartProduct(user, item, count, price, description, imageUrl
     reqBody[item]["id"] = id;
     reqBody[item]["totalPrice"] = totalPrice;
     let req = await fetch(baseUrl + `/addToCart/${user}/items.json`, {
-        method: 'PUT',
+        method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
         },

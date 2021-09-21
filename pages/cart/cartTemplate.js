@@ -41,8 +41,7 @@ export let cartTemplate = (products, plusMinus) => html `
 									<ul>
 										<li>Cart Subtotal<span>$${Object.values(products).reduce((a,b) => a + b.totalPrice, 0)}</span></li>
 										<li>Shipping<span>Free</span></li>
-										<li>You Save<span>$20.00</span></li>
-										<li class="last">You Pay<span>$310.00</span></li>
+										<li class="last">You Pay<span>$${Object.values(products).reduce((a,b) => a + b.totalPrice, 0)}</span></li>
 									</ul>
 									<div class="button5">
 										<a href="#" class="btn">Checkout</a>
@@ -253,7 +252,7 @@ let singleProduct = (product, plusMinus) => html `
 								<td class="qty" data-title="Qty"><!-- Input Order -->
 									<div class="input-group">
 										<div class="button minus">
-											<button type="button" class="btn btn-primary btn-number" data-type="minus" data-field="quant[1]"  @click=${plusMinus}>
+											<button type="button" class="btn btn-primary btn-number" data-type="minus" data-field="quant[1]" disabled=${ifDefined(product.count == 1 ? 'disabled' : undefined)} @click=${plusMinus} >
 												<i class="ti-minus"></i>
 											</button>
 										</div>
