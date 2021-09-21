@@ -57,7 +57,7 @@ async function updateCartProduct(user, item, count, price, description, imageUrl
     reqBody[item]["title"] = title;
     reqBody[item]["id"] = id;
     reqBody[item]["totalPrice"] = totalPrice;
-    let req = await fetch(baseUrl + `/addToCart/${user}/items/${id}.json`, {
+    let req = await fetch(baseUrl + `/addToCart/${user}/items.json`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

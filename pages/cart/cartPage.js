@@ -28,7 +28,7 @@ async function plusMinus(context, e){
     let id = currentProduct.id;
     let imageUrl = currentProduct.imageUrl;
     let price = currentProduct.price;
-    let totalPrice = currentProduct.totalPrice;
+    
     let title = currentProduct.title;
 
     if(btn.dataset.type = 'plus'){
@@ -36,12 +36,12 @@ async function plusMinus(context, e){
     }else if(btn.dataset.type ='minus'){
         count.stepDown();
     }
-    //count.value
+   
     console.log(btn.dataset.type);
-    totalPrice = count.value * Number(price);
-    totalPriceElement.textContent = `$${totalPrice}`;
+    let totalPrice = count.value * Number(price);
     
-    // let updateCartProd = await productServices.updateCartProduct(userId, currentProductId, count.value, price, description, imageUrl, title, currentProductId, totalPrice);
+    
+    let updateCartProd = await productServices.updateCartProduct(userId, currentProductId, count.value, price, description, imageUrl, title, currentProductId, totalPrice);
 
     context.page.redirect(context.path)
     
