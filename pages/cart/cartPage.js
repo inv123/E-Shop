@@ -3,7 +3,6 @@ import { cartTemplate } from "./cartTemplate.js";
 
 let products = undefined;
 let userId = localStorage.getItem('userId');
-let token = localStorage.getItem('authToken');
 
 async function getView(context){
 
@@ -12,7 +11,7 @@ async function getView(context){
     let boundPlusMinus = plusMinus.bind(null, context);
    
     products = myProducts;
-    console.log(products);
+    
     context.renderView(cartTemplate(products, boundPlusMinus))
 }
 
@@ -20,7 +19,6 @@ async function plusMinus(context, e){
     let btn = e.currentTarget;
     let currentProductId = e.target.closest('tr').dataset.id;
     let currentProduct = await productServices.getCartCurrentItem(userId, currentProductId);
-
     let count = e.target.closest('.qty').querySelector('input');
     let totalPriceElement = e.target.closest('tr').querySelector('.total-amount span');
    
@@ -45,6 +43,10 @@ async function plusMinus(context, e){
     context.page.redirect(context.path)
     
 }
+
+
+
+
 
 export default {
     getView

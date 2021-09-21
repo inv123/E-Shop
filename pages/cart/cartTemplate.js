@@ -39,7 +39,7 @@ export let cartTemplate = (products, plusMinus) => html `
 							<div class="col-lg-4 col-md-7 col-12">
 								<div class="right">
 									<ul>
-										<li>Cart Subtotal<span>$330.00</span></li>
+										<li>Cart Subtotal<span>$${Object.values(products).reduce((a,b) => a + b.totalPrice, 0)}</span></li>
 										<li>Shipping<span>Free</span></li>
 										<li>You Save<span>$20.00</span></li>
 										<li class="last">You Pay<span>$310.00</span></li>
