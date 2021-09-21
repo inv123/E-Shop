@@ -32,7 +32,7 @@ async function addToCartProduct(user, item, count, price, description, imageUrl,
     reqBody[item]["id"] = id;
     reqBody[item]["totalPrice"] = totalPrice;
     let req = await fetch(baseUrl +`/addToCart/${user}/items.json/`, {
-        method: 'PATCH',
+        method: 'Put',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -47,11 +47,40 @@ async function getCartProducts(user){
 }
 
 
+async function updateCartProduct(user, item, count, price, description, imageUrl, title, id, totalPrice){
+    let reqBody = {};
+    reqBody[item] = {};
+    reqBody[item]["count"] = count;
+    reqBody[item]["price"] = price;
+    reqBody[item]["description"] = description;
+    reqBody[item]["imageUrl"] = imageUrl;
+    reqBody[item]["title"] = title;
+    reqBody[item]["id"] = id;
+    reqBody[item]["totalPrice"] = totalPrice;
+    let req = await fetch(baseUrl + `/addToCart/${user}/items/${id}.json`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(reqBody)
+    })
+
+    return req.json();
+
+}
+
+async function getCartCurrentItem(userId, productId){
+    let req = await fetch(baseUrl + `/addToCart/${userId}/items/${productId}.json`);
+    return req.json();
+}
+
 export default {
     getAllProducts,
     getFilteredProducts,
     getCurrentItem,
     addToCartProduct,
-    getCartProducts
+    getCartProducts,
+    updateCartProduct,
+    getCartCurrentItem
 
 }

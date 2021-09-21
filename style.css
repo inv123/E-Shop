@@ -5130,7 +5130,8 @@ Version:1.0
 }
 
 .quantity input::-webkit-outer-spin-button,
-.quantity input::-webkit-inner-spin-button {
+.quantity input::-webkit-inner-spin-button,.qty input::-webkit-outer-spin-button,
+.qty input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

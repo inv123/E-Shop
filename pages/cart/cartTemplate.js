@@ -1,8 +1,8 @@
-import {
-    html
-} from '../../node_modules/lit-html/lit-html.js';
 
-export let cartTemplate = (products) => html `
+import { ifDefined } from '../../node_modules/lit-html/directives/if-defined.js';
+import { html} from '../../node_modules/lit-html/lit-html.js';
+
+export let cartTemplate = (products, plusMinus) => html `
 <div class="shopping-cart section">
 		<div class="container">
 			<div class="row">
@@ -21,7 +21,7 @@ export let cartTemplate = (products) => html `
 						</thead>
 						<tbody>
 							
-                            ${products.map(x => singleProduct(x))}
+                            ${products.map(x => singleProduct(x, plusMinus))}
 
 						</tbody>
 					</table>
@@ -242,8 +242,8 @@ export let cartTemplate = (products) => html `
         </div>
 `;
 
-let singleProduct = (product) => html `
-                            <tr>
+let singleProduct = (product, plusMinus) => html `
+                            <tr data-id=${product.id}>
 								<td class="image" data-title="No"><img src="${product.imageUrl}" alt="#"></td>
 								<td class="product-des" data-title="Description">
 									<p class="product-name"><a href="/item/${product.id}">${product.title}</a></p>
@@ -253,13 +253,13 @@ let singleProduct = (product) => html `
 								<td class="qty" data-title="Qty"><!-- Input Order -->
 									<div class="input-group">
 										<div class="button minus">
-											<button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+											<button type="button" class="btn btn-primary btn-number" data-type="minus" data-field="quant[1]"  @click=${plusMinus}>
 												<i class="ti-minus"></i>
 											</button>
 										</div>
-										<input type="text" name="quant[1]" class="input-number"  data-min="1" data-max="100" value="${product.count}">
+										<input type="number" name="quant[1]" class="input-number"  data-min="1" data-max="100" value="${product.count}">
 										<div class="button plus">
-											<button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
+											<button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]"  @click=${plusMinus}>
 												<i class="ti-plus"></i>
 											</button>
 										</div>
