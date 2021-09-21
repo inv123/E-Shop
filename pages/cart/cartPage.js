@@ -31,13 +31,12 @@ async function plusMinus(context, e){
     
     let title = currentProduct.title;
 
-    if(btn.dataset.type = 'plus'){
+    if(btn.dataset.type == 'plus'){
         count.stepUp();
-    }else if(btn.dataset.type ='minus'){
+    }else if(btn.dataset.type =='minus'){
         count.stepDown();
     }
    
-    console.log(btn.dataset.type);
     let totalPrice = count.value * Number(price);
     
     
