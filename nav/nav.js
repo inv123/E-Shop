@@ -9,8 +9,8 @@ async function search(context, e){
         let searchParams = formData.get('search');
         
         if(searchParams.trim() !== ''){
-            let encodedSearch = encodeURIComponent(searchParams)
-            context.page.redirect(`/shop?search=${encodedSearch}`)
+            let query = encodeURIComponent(searchParams)
+            context.page.redirect(`/search/${query}`)
         }        
 }
 

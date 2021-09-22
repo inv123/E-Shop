@@ -14,6 +14,13 @@ async function getFilteredProducts(start, end){
     return req.json();
 }
 
+async function getFilteredProductsByTitle(title){
+    let query = `?orderBy="title"&equalTo="${title}"`;
+
+    let req = await fetch(baseUrl + `/products.json` + query);
+    return req.json();
+}
+
 async function getCurrentItem(itemId){
     let query = `?orderBy="id"&equalTo="${itemId}"`;
    
@@ -84,6 +91,7 @@ async function deleteItem(userId, productId){
 export default {
     getAllProducts,
     getFilteredProducts,
+    getFilteredProductsByTitle,
     getCurrentItem,
     addToCartProduct,
     getCartProducts,

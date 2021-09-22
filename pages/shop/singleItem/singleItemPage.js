@@ -54,7 +54,7 @@ async function addToCart(context, e){
     console.log(totalPrice);
     
     
-    let req = await productServices.addToCartProduct(userId, productId, counter, price, description, imageUrl, title, productId, totalPrice);
+    let req = await productServices.addToCartProduct(userId, counter, price, description, imageUrl, title, productId, totalPrice);
     console.log(req);
     
     context.renderView(singleItemTemplate(itemInfo))
