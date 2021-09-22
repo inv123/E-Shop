@@ -2,7 +2,7 @@
 import { ifDefined } from '../../node_modules/lit-html/directives/if-defined.js';
 import { html} from '../../node_modules/lit-html/lit-html.js';
 
-export let cartTemplate = (products, plusMinus) => html `
+export let cartTemplate = (products, plusMinus, deleteItem) => html `
 <div class="shopping-cart section">
 		<div class="container">
 			<div class="row">
@@ -21,7 +21,7 @@ export let cartTemplate = (products, plusMinus) => html `
 						</thead>
 						<tbody>
 							
-                            ${products.map(x => singleProduct(x, plusMinus))}
+                            ${products.map(x => singleProduct(x, plusMinus, deleteItem))}
 
 						</tbody>
 					</table>
@@ -241,7 +241,7 @@ export let cartTemplate = (products, plusMinus) => html `
         </div>
 `;
 
-let singleProduct = (product, plusMinus) => html `
+let singleProduct = (product, plusMinus, deleteItem) => html `
                             <tr data-id=${product.id}>
 								<td class="image" data-title="No"><img src="${product.imageUrl}" alt="#"></td>
 								<td class="product-des" data-title="Description">
@@ -266,6 +266,6 @@ let singleProduct = (product, plusMinus) => html `
 									<!--/ End Input Order -->
 								</td>
 								<td class="total-amount" data-title="Total"><span>$${product.totalPrice}</span></td>
-								<td class="action" data-title="Remove"><a href="javascript:void(0)" @click=${product.removeItem}><i class="ti-trash remove-icon"></i></a></td>
+								<td class="action" data-title="Remove"><a href="javascript:void(0)" @click=${deleteItem}><i class="ti-trash remove-icon"></i></a></td>
 							</tr>
 `;

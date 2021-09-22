@@ -1,4 +1,4 @@
-import productServices from "../../service/productServices.js";
+import productServices from "../../../service/productServices.js";
 import { singleItemTemplate } from "./singleItemTemplate.js";
 
 let itemInfo = {};
@@ -20,17 +20,19 @@ async function getView(context){
 
 }
 
-function plusMinus(context, e){
+async function plusMinus(context, e){
     e.preventDefault();
-
+    
     let sign = e.target.textContent;
     let inputField = e.target.closest('.quantity').querySelector('input');
-   
+    
     if(sign === '-'){
         inputField.stepDown();
     }else {
         inputField.stepUp();
     }
+
+    
 }
 
 async function addToCart(context, e){

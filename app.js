@@ -9,7 +9,7 @@ import shopPage from './pages/shop/mainShop/shopPage.js';
 import filterShop from './pages/shop/filterShop/filterShop.js';
 import sortFilterPage from './pages/shop/filterShop/sortFilter/sortFilterPage.js';
 import sortMainShopPage from './pages/shop/mainShop/sortMainShop/sortMainShopPage.js';
-import singleItemPage from './pages/singleItem/singleItemPage.js';
+import singleItemPage from './pages/shop/singleItem/singleItemPage.js';
 import cartPage from './pages/cart/cartPage.js';
 
 

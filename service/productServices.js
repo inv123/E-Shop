@@ -21,18 +21,17 @@ async function getCurrentItem(itemId){
     return req.json();
 }
 
-async function addToCartProduct(user, item, count, price, description, imageUrl, title, id, totalPrice){
+async function addToCartProduct(user, count, price, description, imageUrl, title, id, totalPrice){
     let reqBody = {};
-    reqBody[item] = {};
-    reqBody[item]["count"] = count;
-    reqBody[item]["price"] = price;
-    reqBody[item]["description"] = description;
-    reqBody[item]["imageUrl"] = imageUrl;
-    reqBody[item]["title"] = title;
-    reqBody[item]["id"] = id;
-    reqBody[item]["totalPrice"] = totalPrice;
-    let req = await fetch(baseUrl +`/addToCart/${user}/items.json/`, {
-        method: 'Post',
+    reqBody["count"] = count;
+    reqBody["price"] = price;
+    reqBody["description"] = description;
+    reqBody["imageUrl"] = imageUrl;
+    reqBody["title"] = title;
+    reqBody["id"] = id;
+    reqBody["totalPrice"] = totalPrice;
+    let req = await fetch(baseUrl +`/addToCart/${user}/items/${id}.json`, {
+        method: 'put',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -74,6 +73,14 @@ async function getCartCurrentItem(userId, productId){
     return req.json();
 }
 
+async function deleteItem(userId, productId){
+    let req = await fetch(baseUrl + `/addToCart/${userId}/items/${productId}.json`, {
+        method: 'Delete'
+    })
+
+    return req.json()
+}
+
 export default {
     getAllProducts,
     getFilteredProducts,
@@ -81,6 +88,7 @@ export default {
     addToCartProduct,
     getCartProducts,
     updateCartProduct,
-    getCartCurrentItem
+    getCartCurrentItem,
+    deleteItem
 
 }

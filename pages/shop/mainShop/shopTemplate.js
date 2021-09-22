@@ -59,7 +59,7 @@ let singleShopTemplate = (product) => html `
 						<div class="content">
 							<h3>${product.title}</h3>
                             <p>$${product.price}</p>
-							<a href="/shop/mid-season-collection">Discover Now</a>
+							<a href="/item/${product.id}">Shop Now</a>
 						</div>
 					</div>
 				</div>

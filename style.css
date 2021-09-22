@@ -5094,6 +5094,7 @@ Version:1.0
 
 .prod-img img{
 	transform: scale(1.5);
+	max-width: 200px !important;
 }
 
 .select-quantity{
@@ -5126,7 +5127,7 @@ Version:1.0
 }
 
 .quantity a{
-	background: #989898;
+	background: #e4e4e4;
 }
 
 .quantity input::-webkit-outer-spin-button,

@@ -9,10 +9,11 @@ async function getView(context){
     let myProductsResponse = await productServices.getCartProducts(userId);
     let myProducts = Object.values(myProductsResponse);
     let boundPlusMinus = plusMinus.bind(null, context);
+    let boundDeleteHandler = deleteItem.bind(null, context);
    
     products = myProducts;
     
-    context.renderView(cartTemplate(products, boundPlusMinus))
+    context.renderView(cartTemplate(products, boundPlusMinus, boundDeleteHandler))
 }
 
 async function plusMinus(context, e){
@@ -42,6 +43,13 @@ async function plusMinus(context, e){
 
     context.page.redirect(context.path)
     
+}
+
+async function deleteItem(context, e){
+    let productId = e.target.closest('tr').dataset.id;
+    let req = await productServices.deleteItem(userId, productId);
+
+    context.page.redirect(context.path)
 }
 
 

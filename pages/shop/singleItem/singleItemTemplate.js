@@ -1,4 +1,4 @@
-import {html} from '../../node_modules/lit-html/lit-html.js';
+import {html} from '../../../node_modules/lit-html/lit-html.js';
 
 export let singleItemTemplate = (itemInfo) => html`
     <div class="container">
@@ -21,8 +21,9 @@ export let singleItemTemplate = (itemInfo) => html`
                             <div class="select-quantity" >
                                 <div class="quantity">
                                     <a class="minus-quantity" href="javascript:void(0)" @click=${itemInfo.plusMinus}>-</a>
-                                    <input class=hidden-price value=${itemInfo.currentItem.price} name="price">
+                                    
                                     <input type="number" min="1" max value="1" step="1" name="count">
+                                    <input class=hidden-price value=${itemInfo.currentItem.price} name="price">
                                     <a class="plus-quantity" href="javascript:void(0)" @click=${itemInfo.plusMinus}>+</a>
                                 </div>
                                 <button type="submit" name="add-to-cart">Add to cart</button>
