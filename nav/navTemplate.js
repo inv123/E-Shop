@@ -1,7 +1,7 @@
 import {html} from '../node_modules/lit-html/lit-html.js';
 import {ifDefined} from '../node_modules/lit-html/directives/if-defined.js';
 
-export let navTemplate = (navInfo, navSearch, navKids, navMan, navWoman) => html`
+export let navTemplate = (navInfo, navSearch, navKids, navMan, navWoman, deleteItem) => html`
 <div class="topbar">
 			<div class="container">
 				<div class="row">
@@ -72,33 +72,24 @@ export let navTemplate = (navInfo, navSearch, navKids, navMan, navWoman) => html
 								<a href="/profile" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
 							</div>
 							<div class="sinlge-bar shopping">
-								<a href="/cart" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+								<a href="/cart" class="single-icon"><i class="ti-bag"></i> <span class="total-count">${navInfo.currentTotalCartItems}</span></a>
 								<!-- Shopping Item -->
 								<div class="shopping-item">
 									<div class="dropdown-cart-header">
-										<span>2 Items</span>
-										<a href="#">View Cart</a>
+										<span>${navInfo.currentItems} Items</span>
+										<a href="/cart">View Cart</a>
 									</div>
 									<ul class="shopping-list">
-										<li>
-											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-											<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-											<h4><a href="#">Woman Ring</a></h4>
-											<p class="quantity">1x - <span class="amount">$99.00</span></p>
-										</li>
-										<li>
-											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-											<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-											<h4><a href="#">Woman Necklace</a></h4>
-											<p class="quantity">1x - <span class="amount">$35.00</span></p>
-										</li>
+										
+										${navInfo.myProducts.map(x => navProduct(x, deleteItem))}	
+
 									</ul>
 									<div class="bottom">
 										<div class="total">
 											<span>Total</span>
-											<span class="total-amount">$134.00</span>
+											<span class="total-amount">$${navInfo.total}</span>
 										</div>
-										<a href="checkout.html" class="btn animate">Checkout</a>
+										<a href="/checkout" class="btn animate">Checkout</a>
 									</div>
 								</div>
 								<!--/ End Shopping Item -->
@@ -199,4 +190,13 @@ export let navTemplate = (navInfo, navSearch, navKids, navMan, navWoman) => html
 				</div>
 			</div>
 		</div>
+`;
+
+let navProduct = (item, deleteItem) => html`
+								<li data-id=${item.id}>
+									<a href="javascript:void(0)" class="remove" title="Remove this item" @click=${deleteItem}><i class="fa fa-remove"></i></a>
+									<a class="cart-img" href="/item/${item.id}"><img src="${item.imageUrl}" alt="#"></a>
+									<h4><a href="/item/${item.id}">${item.title}</a></h4>
+									<p class="quantity">${item.count}x - <span class="amount">$${item.price}</span></p>
+								</li>
 `;
