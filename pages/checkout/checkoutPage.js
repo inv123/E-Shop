@@ -51,6 +51,11 @@ async function selectPayment(context, e){
     payment = checkbox.closest('label').textContent;
     personalDataForm.payment = payment;
 
+    let req = await productServices.setPaymentMethod(userId, personalDataForm)
+
+    console.log(req);
+
+
 }
 
 async function savePersonalData(context, e){
@@ -76,9 +81,7 @@ async function savePersonalData(context, e){
         secondAddress,
         postCode
     }
-    let req = await productServices.savePersonalData(userId, personalDataForm)
-    console.log(req);
-
+    let req = await productServices.savePersonalData(userId, personalDataForm);
 }
 
 async function proceedToCheckout(context, e){

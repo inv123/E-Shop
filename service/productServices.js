@@ -99,6 +99,18 @@ async function savePersonalData(userId, personalDataForm){
     return req.json()
 }
 
+async function setPaymentMethod(userId, personalDataForm){
+    let req = await fetch(baseUrl + `/addToCart/${userId}/personalData.json`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(personalDataForm)
+    })
+
+    return req.json();
+}
+
 export default {
     getAllProducts,
     getFilteredProducts,
@@ -109,6 +121,7 @@ export default {
     updateCartProduct,
     getCartCurrentItem,
     deleteItem,
-    savePersonalData
+    savePersonalData,
+    setPaymentMethod
 
 }
