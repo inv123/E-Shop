@@ -109,7 +109,7 @@ export let checkoutTemplate = (checkoutInfo) => html`
 							<div class="single-widget get-button">
 								<div class="content">
 									<div class="button">
-										<a href="javascript:void(0)" class="btn" >proceed to checkout</a>
+										<a href="javascript:void(0)" class="btn" @click=${checkoutInfo.proceedToCheckout}>proceed to checkout</a>
 									</div>
 								</div>
 							</div>

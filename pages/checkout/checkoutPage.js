@@ -52,10 +52,6 @@ async function selectPayment(context, e){
     personalDataForm.payment = payment;
 
     let req = await productServices.setPaymentMethod(userId, personalDataForm)
-
-    console.log(req);
-
-
 }
 
 async function savePersonalData(context, e){
@@ -85,7 +81,10 @@ async function savePersonalData(context, e){
 }
 
 async function proceedToCheckout(context, e){
-
+    let infoReq = await productServices.getUserOrderInfo(userId);
+    let orderRequest = await productServices.createOrder(userId, infoReq)
+    
+    context.page.redirect(`/order/confirm/${orderRequest.name}`)
 }
 
 export default {

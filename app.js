@@ -41,6 +41,13 @@ page('/cart', middleware.decorateContext, nav.getNav, cartPage.getView);
 
 
 
+//TO DO .... Create this path
+page('/order/confirm/:orderName', middleware.decorateContext, nav.getNav, cartPage.getView);
+
+
+
+
+
 page('/', '/home');
 page('/index.html', '/home')
 

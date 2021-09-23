@@ -111,6 +111,24 @@ async function setPaymentMethod(userId, personalDataForm){
     return req.json();
 }
 
+async function getUserOrderInfo(userId){
+    let req = await fetch(baseUrl + `/addToCart/${userId}.json`);
+
+    return req.json();
+}
+
+async function createOrder(userId, orderInfo){
+    let req = await fetch(baseUrl + `/addToCart/${userId}/orders.json`, {
+        method: 'Post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orderInfo)
+    })
+
+    return req.json();
+}
+
 export default {
     getAllProducts,
     getFilteredProducts,
@@ -122,6 +140,8 @@ export default {
     getCartCurrentItem,
     deleteItem,
     savePersonalData,
-    setPaymentMethod
+    setPaymentMethod,
+    getUserOrderInfo,
+    createOrder
 
 }
