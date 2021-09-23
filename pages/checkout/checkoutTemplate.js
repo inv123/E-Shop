@@ -9,7 +9,8 @@ export let checkoutTemplate = (checkoutInfo) => html`
 							<h2 style="margin-bottom: 100px">Make Your Checkout Here</h2>
 							
 							<!-- Form -->
-							<form class="form" method="post" action="#">
+							<form class="form" method="post" action="#" @change=${checkoutInfo.savePersonalData}>
+								<div class="error-message"></div>
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-12">
 										<div class="form-group">
@@ -20,7 +21,7 @@ export let checkoutTemplate = (checkoutInfo) => html`
 									<div class="col-lg-6 col-md-6 col-12">
 										<div class="form-group">
 											<label>Last Name<span>*</span></label>
-											<input type="text" name="name" placeholder="" required="required">
+											<input type="text" name="lastName" placeholder="" required="required">
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
@@ -32,7 +33,7 @@ export let checkoutTemplate = (checkoutInfo) => html`
 									<div class="col-lg-6 col-md-6 col-12">
 										<div class="form-group">
 											<label>Phone Number<span>*</span></label>
-											<input type="number" name="number" placeholder="" required="required">
+											<input type="number" name="phone" placeholder="" required="required">
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
@@ -56,13 +57,13 @@ export let checkoutTemplate = (checkoutInfo) => html`
 									<div class="col-lg-6 col-md-6 col-12">
 										<div class="form-group">
 											<label>Address Line 2</label>
-											<input type="text" name="address" placeholder="" >
+											<input type="text" name="second-address" placeholder="" >
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
 										<div class="form-group">
 											<label>Postal Code<span>*</span></label>
-											<input type="text" name="post" placeholder="" required="required">
+											<input type="text" name="post-code" placeholder="" required="required">
 										</div>
 									</div>
 									
@@ -108,7 +109,7 @@ export let checkoutTemplate = (checkoutInfo) => html`
 							<div class="single-widget get-button">
 								<div class="content">
 									<div class="button">
-										<a href="#" class="btn">proceed to checkout</a>
+										<a href="javascript:void(0)" class="btn" >proceed to checkout</a>
 									</div>
 								</div>
 							</div>

@@ -72,7 +72,6 @@ async function updateCartProduct(user, item, count, price, description, imageUrl
     })
 
     return req.json();
-
 }
 
 async function getCartCurrentItem(userId, productId){
@@ -88,6 +87,18 @@ async function deleteItem(userId, productId){
     return req.json()
 }
 
+async function savePersonalData(userId, personalDataForm){
+    let req = await fetch(baseUrl + `/addToCart/${userId}/personalData.json`, {
+        method: 'put',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(personalDataForm)
+    });
+
+    return req.json()
+}
+
 export default {
     getAllProducts,
     getFilteredProducts,
@@ -97,6 +108,7 @@ export default {
     getCartProducts,
     updateCartProduct,
     getCartCurrentItem,
-    deleteItem
+    deleteItem,
+    savePersonalData
 
 }

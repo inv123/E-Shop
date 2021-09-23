@@ -5,12 +5,16 @@ let checkoutInfo = undefined;
 let userId = localStorage.getItem('userId');
 let shipping = 0;
 let payment = undefined;
+let personalDataForm = {};
 
 async function getView(context){
     let myProductsRes = await productServices.getCartProducts(userId);
     let myProducts = Object.values(myProductsRes);
     let subtotal = 0;
-    let boundSelectPayment = selectPayment.bind(null, context)
+    let boundSelectPayment = selectPayment.bind(null, context);
+    let boundSavePersonalData = savePersonalData.bind(null, context);
+    let boundProceedToCheckout = proceedToCheckout.bind(null, context);
+
     
     myProducts.forEach(x => {
         subtotal+=Number(x.price);
@@ -19,7 +23,9 @@ async function getView(context){
     checkoutInfo = {
         subtotal,
         shipping,
-        selectPayment: boundSelectPayment
+        selectPayment: boundSelectPayment,
+        savePersonalData: boundSavePersonalData,
+        proceedToCheckout: boundProceedToCheckout
     }
     
     context.renderView(checkoutTemplate(checkoutInfo))
@@ -43,6 +49,40 @@ async function selectPayment(context, e){
     }
 
     payment = checkbox.closest('label').textContent;
+    personalDataForm.payment = payment;
+
+}
+
+async function savePersonalData(context, e){
+    let formData = new FormData(e.currentTarget);
+    let name = formData.get('name');
+    let lastName = formData.get('lastName');
+    let email = formData.get('email');
+    let phone = formData.get('phone');
+    let country = formData.get('country');
+    let state = formData.get('state');
+    let mainAddress = formData.get('address');
+    let secondAddress = formData.get('second-address');
+    let postCode = formData.get('post-code');
+
+    personalDataForm = {
+        name,
+        lastName,
+        email,
+        phone,
+        country,
+        state,
+        mainAddress,
+        secondAddress,
+        postCode
+    }
+    let req = await productServices.savePersonalData(userId, personalDataForm)
+    console.log(req);
+
+}
+
+async function proceedToCheckout(context, e){
+
 }
 
 export default {
