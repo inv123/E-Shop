@@ -129,6 +129,11 @@ async function createOrder(userId, orderInfo){
     return req.json();
 }
 
+async function getOrderDetails(userId, orderId){
+    let req = await fetch(baseUrl + `/addToCart/${userId}/orders/${orderId}.json`);
+    return req.json();
+}
+
 export default {
     getAllProducts,
     getFilteredProducts,
@@ -142,6 +147,7 @@ export default {
     savePersonalData,
     setPaymentMethod,
     getUserOrderInfo,
-    createOrder
+    createOrder,
+    getOrderDetails
 
 }

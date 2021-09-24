@@ -82,8 +82,14 @@ async function savePersonalData(context, e){
 
 async function proceedToCheckout(context, e){
     let infoReq = await productServices.getUserOrderInfo(userId);
-    let orderRequest = await productServices.createOrder(userId, infoReq)
+    let customerOrderInfo = {};
+
+    customerOrderInfo.items = infoReq.items;
+    customerOrderInfo.personalData = infoReq.personalData;
     
+    console.log(infoReq);
+    console.log(customerOrderInfo);
+    let orderRequest = await productServices.createOrder(userId, customerOrderInfo)
     context.page.redirect(`/order/confirm/${orderRequest.name}`)
 }
 

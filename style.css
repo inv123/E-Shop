@@ -5177,6 +5177,15 @@ Version:1.0
 	text-align: center;
 	padding-bottom: 200px;
 }
+
+.order-home-btn{
+	display:block;
+	margin: 0 41%;
+	text-align: center;
+	margin-bottom: 70px;
+	padding: 10px 0;
+	background: #f6931d;
+}
 /*=============================
 	End Footer CSS
 ===============================*/
