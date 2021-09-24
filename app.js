@@ -13,6 +13,7 @@ import singleItemPage from './pages/shop/singleItem/singleItemPage.js';
 import cartPage from './pages/cart/cartPage.js';
 import searchShopPage from './pages/shop/searchShop/searchShopPage.js';
 import checkoutPage from './pages/checkout/checkoutPage.js';
+import confirmOrderPage from './pages/confirmOrder/confirmOrderPage.js';
 
 
 let navCont = document.querySelector('header');
@@ -37,12 +38,7 @@ page('/shop/:sort', middleware.decorateContext, nav.getNav, sortMainShopPage.get
 
 page('/cart', middleware.decorateContext, nav.getNav, cartPage.getView);
 
-
-
-
-
-//TO DO .... Create this path
-page('/order/confirm/:orderName', middleware.decorateContext, nav.getNav, cartPage.getView);
+page('/order/confirm/:orderName', middleware.decorateContext,loginNav.getLoginNav, confirmOrderPage.getView);
 
 
 
