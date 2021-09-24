@@ -5,9 +5,7 @@ import { trendingItemTemplate } from './3.trendingItem/trendingItemTemplate.js';
 import {mediumBannerTemplate} from './4.mediumBanner/mediumBannerTemplate.js';
 import { yellowBannerTemplate } from './6.yellowBanner/yellowBannerTemplate.js';
 import { onSaleBestSaleTemplate } from './7.onSaleBestSale/onSaleBestSaleTemplate.js';
-import { blogSectionTemplate } from './8.blogSection/blogSectionTemplate.js';
 import { shopServiceTemplate } from './9.shopService/shopServiceTemplate.js';
-import { newsLetterTemplate } from './10.newsLetter/newsLetterTemplate.js';
 
 export let homePageTemplate = (product) => html`
 <section class="hero-slider">
@@ -28,13 +26,9 @@ export let homePageTemplate = (product) => html`
   <section class="shop-home-list section">
       ${onSaleBestSaleTemplate(product)}
   </section>
-  <section class="shop-blog section">
-      ${blogSectionTemplate()}
-  </section>
+ 
   <section class="shop-services section home">
       ${shopServiceTemplate()}
   </section>
-  <section class="shop-newsletter section">
-      ${newsLetterTemplate()}
-  </section>
+ 
 `;

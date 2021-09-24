@@ -37,7 +37,7 @@ async function getView(context){
     let onSale = Object.values(allProducts).filter(x => x.onSale === true);
     let bestSeller = Object.values(allProducts).filter(x => x.bestSeller === true);
     let topViewed = Object.values(allProducts).filter(x => x.topViewed === true);
-
+    
 
     let boundSetActiveNavClass = setActiveNavClass.bind(null, context)
 
