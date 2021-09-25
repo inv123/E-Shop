@@ -2,7 +2,7 @@ import {html} from '../../../node_modules/lit-html/lit-html.js';
 
 export let searchShopTemplate = (shopInfo) => html`
 
-        ${shopInfo.products 
+        ${shopInfo.products.length >= 1 
             ? html`<div class="container">
                         <div class="container-fluid">
                             
@@ -16,10 +16,10 @@ export let searchShopTemplate = (shopInfo) => html`
                             </div>
                         </div>
                     </div>` 
-: html``}
-  <div class="container no-items">
-      <h3>No items found. Try to search again...</h3>
-  </div>
+: html`  <div class="container no-items" style="padding: 100px 0">
+             <h3>No items found. Try to search again...</h3>
+        </div>`}
+
 		
 `;
 

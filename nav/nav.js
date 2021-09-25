@@ -1,55 +1,48 @@
 import productServices from "../service/productServices.js";
 import { navTemplate } from "./navTemplate.js";
 
-let navSearch = undefined;
 let userId = localStorage.getItem('userId');
-
-async function search(context, e){
-    e.preventDefault()
-        let formData = new FormData(e.target);
-        let searchParams = formData.get('search');
-        
-        if(searchParams.trim() !== ''){
-            let query = encodeURIComponent(searchParams)
-            context.page.redirect(`/search/${query}`)
-        }        
-}
-
+let token = localStorage.getItem('authToken');
+let navInfo = {};
 
 async function getNav(context, next){
     let boundSearch = search.bind(null, context);
-    let allProducts = await productServices.getAllProducts();
-    let myProductsRes = await productServices.getCartProducts(userId);
-    let currentTotalCartItems = 0;
-    let total = 0;
-    let currentItems = Object.values(myProductsRes).length;
-    let myProducts = Object.values(myProductsRes);
-    Object.values(myProductsRes).forEach(x => {
-        currentTotalCartItems+=Number(x.count);
-        total+=Number(x.count) * Number(x.price);
-    });
-    
-    let navKids = Object.values(allProducts).find(x => x.navKids === true);
-    let navMan = Object.values(allProducts).find(x => x.navMan === true);
-    let navWoman = Object.values(allProducts).find(x => x.navWoman === true);
-
+    let itemsInCartReq = await productServices.getCartProducts(userId);
+    let itemsInCart = undefined;
+    if(itemsInCartReq){
+        itemsInCart = Object.values(itemsInCartReq);
+        console.log(itemsInCart);
+    }
+    let itemCount = 0;
+    let totalPrice = 0;
     let boundDeleteItem = deleteItem.bind(null, context);
-    let navInfo = {
-        currentPage: context.pathname,
-        currentTotalCartItems,
-        currentItems,
-        myProducts,
-        total
+
+    if(itemsInCart){
+        itemsInCart.forEach(x => {
+            itemCount+=Number(x.count);
+            totalPrice+=Number(x.totalPrice)
+        })
     }
 
-    navSearch = {
-        search: boundSearch
+    navInfo = {
+        search: boundSearch,
+        items: itemsInCart,
+        itemCount,
+        totalPrice
+        
     }
-
-   
-
-    context.renderNav(navTemplate(navInfo, navSearch, navKids, navMan, navWoman, boundDeleteItem));
+    
+    context.renderNav(navTemplate(navInfo, boundDeleteItem));
     next();
+}
+
+async function search(context, e){
+    e.preventDefault();
+
+    let formData = new FormData(e.target);
+    let searchTerm = formData.get('search').trim();
+
+    context.page.redirect(`/search/${searchTerm}`)
 }
 
 async function deleteItem(context, e){
@@ -62,3 +55,4 @@ async function deleteItem(context, e){
 export default {
     getNav
 }
+
