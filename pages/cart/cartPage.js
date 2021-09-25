@@ -7,7 +7,10 @@ let userId = localStorage.getItem('userId');
 async function getView(context){
 
     let myProductsResponse = await productServices.getCartProducts(userId);
-    let myProducts = Object.values(myProductsResponse);
+    let myProducts = undefined;
+    if(myProductsResponse){
+        myProducts = Object.values(myProductsResponse);
+    }
     let boundPlusMinus = plusMinus.bind(null, context);
     let boundDeleteHandler = deleteItem.bind(null, context);
    
@@ -17,31 +20,34 @@ async function getView(context){
 }
 
 async function plusMinus(context, e){
-    let btn = e.currentTarget;
-    let currentProductId = e.target.closest('tr').dataset.id;
-    let currentProduct = await productServices.getCartCurrentItem(userId, currentProductId);
-    let count = e.target.closest('.qty').querySelector('input');
-    let totalPriceElement = e.target.closest('tr').querySelector('.total-amount span');
-   
-    let description = currentProduct.description;
-    let id = currentProduct.id;
-    let imageUrl = currentProduct.imageUrl;
-    let price = currentProduct.price;
     
-    let title = currentProduct.title;
-
-    if(btn.dataset.type == 'plus'){
-        count.stepUp();
-    }else if(btn.dataset.type =='minus'){
-        count.stepDown();
-    }
-   
-    let totalPrice = count.value * Number(price);
+        let btn = e.currentTarget;
+        let currentProductId = e.target.closest('tr').dataset.id;
+        let currentProduct = await productServices.getCartCurrentItem(userId, currentProductId);
+        let count = e.target.closest('.qty').querySelector('input');
+        let totalPriceElement = e.target.closest('tr').querySelector('.total-amount span');
+       
+        let description = currentProduct.description;
+        let id = currentProduct.id;
+        let imageUrl = currentProduct.imageUrl;
+        let price = currentProduct.price;
+        
+        let title = currentProduct.title;
+    
+        if(btn.dataset.type == 'plus'){
+            count.stepUp();
+        }else if(btn.dataset.type =='minus'){
+            count.stepDown();
+        }
+       
+        let totalPrice = count.value * Number(price);
+        
+        
+        let updateCartProd = await productServices.updateCartProduct(userId, currentProductId, count.value, price, description, imageUrl, title, currentProductId, totalPrice);
+    
+        context.page.redirect(context.path)
     
     
-    let updateCartProd = await productServices.updateCartProduct(userId, currentProductId, count.value, price, description, imageUrl, title, currentProductId, totalPrice);
-
-    context.page.redirect(context.path)
     
 }
 

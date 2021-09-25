@@ -3,28 +3,12 @@ import { ifDefined } from '../../node_modules/lit-html/directives/if-defined.js'
 import { html} from '../../node_modules/lit-html/lit-html.js';
 
 export let cartTemplate = (products, plusMinus, deleteItem) => html `
-<div class="shopping-cart section">
+	${products ? html`<div class="shopping-cart section">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<!-- Shopping Summery -->
-					<table class="table shopping-summery">
-						<thead>
-							<tr class="main-hading">
-								<th>PRODUCT</th>
-								<th>NAME</th>
-								<th class="text-center">UNIT PRICE</th>
-								<th class="text-center">QUANTITY</th>
-								<th class="text-center">TOTAL</th> 
-								<th class="text-center"><i class="ti-trash remove-icon"></i></th>
-							</tr>
-						</thead>
-						<tbody>
-							
-                            ${products.map(x => singleProduct(x, plusMinus, deleteItem))}
-
-						</tbody>
-					</table>
+					
 					<!--/ End Shopping Summery -->
 				</div>
 			</div>
@@ -100,7 +84,7 @@ export let cartTemplate = (products, plusMinus, deleteItem) => html `
 				</div>
 			</div>
 		</div>
-	</section>
+	</section>` : html`<h4 style="text-align: center; padding: 100px 0">No items in the cart...</h4>`}
 
 `;
 
