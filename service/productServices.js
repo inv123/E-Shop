@@ -5,6 +5,12 @@ async function getAllProducts(){
     return req.json();
 }
 
+async function isDiscounted(){
+    let query = `?orderBy="isDiscounted"&equalTo=true`;
+    let req = await fetch(baseUrl + '/products.json' + query);
+    return req.json();
+}
+
 async function getFilteredProducts(start, end){
     let query = `?orderBy="price"&startAt=${start}&endAt=${end}`;
     if(start === undefined){
@@ -138,6 +144,7 @@ export default {
     getAllProducts,
     getFilteredProducts,
     getFilteredProductsByTitle,
+    isDiscounted,
     getCurrentItem,
     addToCartProduct,
     getCartProducts,

@@ -3,7 +3,6 @@ import middleware from './middleware.js';
 import nav from './nav/nav.js';
 import loginPage from './pages/login/loginPage/loginPage.js';
 import loginNav from './pages/login/loginNav/loginNav.js';
-import homePage from './pages/homepage/homePage.js';
 import registerPage from './pages/register/registerPage.js';
 import shopPage from './pages/shop/mainShop/shopPage.js';
 import filterShop from './pages/shop/filterShop/filterShop.js';
@@ -14,6 +13,8 @@ import cartPage from './pages/cart/cartPage.js';
 import searchShopPage from './pages/shop/searchShop/searchShopPage.js';
 import checkoutPage from './pages/checkout/checkoutPage.js';
 import confirmOrderPage from './pages/confirmOrder/confirmOrderPage.js';
+import firstSection from './pages/homepage/firstEleSection/firstSection.js';
+import secondSection from './pages/homepage/secondSection/secondSection.js';
 
 
 let navCont = document.querySelector('header');
@@ -21,7 +22,7 @@ let viewCont = document.querySelector('.view-page')
 
 middleware.initialize(navCont, viewCont);
 
-page('/home', middleware.decorateContext, nav.getNav, homePage.getView);
+page('/home', middleware.decorateContext, nav.getNav, firstSection.getView, secondSection.getView);
 page('/login', middleware.decorateContext, loginNav.getLoginNav, loginPage.getView);
 page('/register', middleware.decorateContext, loginNav.getLoginNav, registerPage.getView);
 page('/logout', async (context) => {await localStorage.clear(); context.page.redirect('/')});
@@ -39,10 +40,6 @@ page('/shop/:sort', middleware.decorateContext, nav.getNav, sortMainShopPage.get
 page('/cart', middleware.decorateContext, nav.getNav, cartPage.getView);
 
 page('/order/confirm/:orderName', middleware.decorateContext,loginNav.getLoginNav, confirmOrderPage.getView);
-
-
-
-
 
 page('/', '/home');
 page('/index.html', '/home')

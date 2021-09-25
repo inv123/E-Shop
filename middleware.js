@@ -23,7 +23,7 @@ async function renderNav(template){
 
 function decorateContext(context, next){
     context.renderNav = renderNav;
-   context.renderView = renderView;
+    context.renderView = renderView;
 
     next();
 }
