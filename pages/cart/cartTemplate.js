@@ -8,7 +8,23 @@ export let cartTemplate = (products, plusMinus, deleteItem) => html `
 			<div class="row">
 				<div class="col-12">
 					<!-- Shopping Summery -->
-					
+					<table class="table shopping-summery">
+						<thead>
+							<tr class="main-hading">
+								<th>PRODUCT</th>
+								<th>NAME</th>
+								<th class="text-center">UNIT PRICE</th>
+								<th class="text-center">QUANTITY</th>
+								<th class="text-center">TOTAL</th> 
+								<th class="text-center"><i class="ti-trash remove-icon"></i></th>
+							</tr>
+						</thead>
+						<tbody>
+							
+							${products.map(x => singleProduct(x, plusMinus, deleteItem))}
+
+						</tbody>
+					</table>
 					<!--/ End Shopping Summery -->
 				</div>
 			</div>
