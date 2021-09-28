@@ -11,11 +11,36 @@ async function isDiscounted(){
     return req.json();
 }
 
-async function getProductsByCategory(category){
-    let query = `?orderBy="category"&equalTo="${category}"&limitToFirst=4`;
+async function getManProducts(){
+    let query = `?orderBy="category"&equalTo="man"&limitToFirst=4`;
     let req = await fetch(baseUrl + '/products.json' + query);
     return req.json();
 }
+
+async function getWomanProducts(){
+    let query = `?orderBy="category"&equalTo="woman"&limitToFirst=4`;
+    let req = await fetch(baseUrl + '/products.json' + query);
+    return req.json();
+}
+
+async function getKidsProducts(){
+    let query = `?orderBy="category"&equalTo="kids"&limitToFirst=4`;
+    let req = await fetch(baseUrl + '/products.json' + query);
+    return req.json();
+}
+
+async function getAccessoriesProducts(){
+    let query = `?orderBy="category"&equalTo="accessories"&limitToFirst=4`;
+    let req = await fetch(baseUrl + '/products.json' + query);
+    return req.json();
+}
+
+async function getEssentialProducts(){
+    let query = `?orderBy="category"&equalTo="essential"&limitToFirst=4`;
+    let req = await fetch(baseUrl + '/products.json' + query);
+    return req.json();
+}
+
 
 async function getFilteredProducts(start, end){
     let query = `?orderBy="price"&startAt=${start}&endAt=${end}`;
@@ -150,7 +175,11 @@ export default {
     getAllProducts,
     getFilteredProducts,
     getFilteredProductsByTitle,
-    getProductsByCategory,
+    getManProducts,
+    getWomanProducts,
+    getKidsProducts,
+    getAccessoriesProducts,
+    getEssentialProducts,
     isDiscounted,
     getCurrentItem,
     addToCartProduct,

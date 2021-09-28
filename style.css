@@ -1,40 +1,4 @@
-/* =====================================
-Template Name: Eshop
-Author Name: Naimur Rahman
-Author URI: http://www.wpthemesgrid.com/
-Description: Eshop - eCommerce HTML5 Template.
-Version:1.0
-========================================*/
-/*======================================
-[ CSS Table of contents ]
-01. Preloader CSS
-02. Header CSS
-	+ Logo
-	+ Category Menu
-	+ Main Menu
-03. Hero Area CSS
-04. Small Banner CSS
-05. Medium Banner CSS
-06. Single Product CSS
-07. Shop Sidebar CSS
-08. Shop Single CSS
-09. Shop Home List CSS
-10. Cart CSS
-11. Checkout CSS
-12. Login & Register CSS
-13. Cowndown CSS
-14. Shop Services CSS
-15. Newslatter CSS
-16. About Us CSS
-17. Team CSS
-18. Blog CSS	
-	+ Blog Archive
-	+ Blog Sidebar
-	+ Blog Single
-19. Contact CSS
-20. 404 Error CSS
-21. Footer CSS
-========================================*/
+
 .color-plate {
 	position: fixed;
 	display: block;
@@ -1773,7 +1737,7 @@ Version:1.0
   position: relative;
 }
 .single-product .product-img a img {
-  width: 100%;
+  max-width: 330px;
 }
 .single-product .product-img a img.hover-img {
   position: absolute;
@@ -4307,7 +4271,6 @@ Version:1.0
 	display:inline-block;
 	margin-right:5px;
 }
-/* Blog Tags */
 .main-sidebar .side-tags{}
 .main-sidebar .side-tags .tag{
 	margin-top:40px;
@@ -4331,7 +4294,7 @@ Version:1.0
 	background:#F7941D;
 	border-color:transparent;
 }
-/* Blog Newslatter CSS */
+
 .main-sidebar .newsletter{
 	
 }
@@ -4508,7 +4471,7 @@ Version:1.0
 	color:#fff;
 	background:#F7941D;
 }
-/* Comments */
+
 .blog-single .comments{
 	margin-top:40px;
 }
@@ -4666,14 +4629,7 @@ Version:1.0
 	height: 50px;
 	border: none;
 }
-/*======================================
-   End Shop Blog CSS
-========================================*/
 
-
-/*======================================
-  21. Contact CSS
-========================================*/
 .contact-us {
 	position: relative;
 	z-index: 43;
@@ -4780,11 +4736,7 @@ Version:1.0
 	height: 500px;
 	width: 100%;
 }
-/*======================================
-  End Contact CSS
-========================================*/
 
-/* Mail Success */
 .mail-success .mail-inner {
 	text-align: center;
 	background: #fff;
@@ -4812,9 +4764,7 @@ Version:1.0
 	margin-right:5px;
 }
 
-/*=============================
-	Start 404 Error CSS
-===============================*/
+
 .error-page {
 	background:#fff;
 	width: 100%;
@@ -4872,9 +4822,7 @@ Version:1.0
 	background:#F7941D;
 	border-color:transparent;
 }
-/*=============================
-	/End 404 Error CSS
-===============================*/
+
 
 .free-version-banner {
   position: relative;
@@ -4914,9 +4862,6 @@ Version:1.0
   text-transform:capitalize;
 }
 
-/*=============================
-	20. Start Footer CSS
-===============================*/
 .footer{
 	background:#222;
 }
@@ -5188,7 +5133,8 @@ Version:1.0
 	padding: 10px 0;
 	background: #f6931d;
 }
-/*=============================
-	End Footer CSS
-===============================*/
 
+#myTabContent .row h5{
+	display: block;
+	margin: 100px auto 0 auto;
+}
