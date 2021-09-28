@@ -156,9 +156,7 @@ export let navTemplate = (navInfo, deleteItem) => html`
 															<li><a href="/checkout">Checkout</a></li>
 														</ul>
 													</li>
-													<li><a href="/blog">Blog</i></a>
 													
-													</li>
 													<li><a href="contact.html">Contact Us</a></li>
 												</ul>
 										</div>
