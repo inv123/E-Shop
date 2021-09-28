@@ -13,7 +13,7 @@ import cartPage from './pages/cart/cartPage.js';
 import searchShopPage from './pages/shop/searchShop/searchShopPage.js';
 import checkoutPage from './pages/checkout/checkoutPage.js';
 import confirmOrderPage from './pages/confirmOrder/confirmOrderPage.js';
-import homePage from './pages/homepage/home/homePage.js';
+import homepage from './pages/home/homepage.js';
 
 
 let navCont = document.querySelector('header');
@@ -21,7 +21,7 @@ let viewCont = document.querySelector('.view-page')
 
 middleware.initialize(navCont, viewCont);
 
-page('/home', middleware.decorateContext, nav.getNav, homePage.getView);
+page('/home', middleware.decorateContext, nav.getNav, homepage.getView);
 page('/login', middleware.decorateContext, loginNav.getLoginNav, loginPage.getView);
 page('/register', middleware.decorateContext, loginNav.getLoginNav, registerPage.getView);
 page('/logout', async (context) => {await localStorage.clear(); context.page.redirect('/')});
