@@ -5138,3 +5138,8 @@
 	display: block;
 	margin: 100px auto 0 auto;
 }
+
+.midium-banner .single-banner img{
+	background-overlay: #ffffff;
+	opacity: 0.5;
+}
