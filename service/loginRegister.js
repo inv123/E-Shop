@@ -18,7 +18,6 @@ async function login(userLogin){
     localStorage.setItem('email', res.email);
     localStorage.setItem('userId', res.localId);
    
-
     return res;
 }
 
@@ -37,8 +36,8 @@ async function register(userRegister){
     localStorage.setItem('authToken', res.idToken);
     localStorage.setItem('email', res.email);
     localStorage.setItem('userId', res.localId);
-
 }
+
 
 export default {
     login,

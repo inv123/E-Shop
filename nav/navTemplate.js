@@ -27,7 +27,7 @@ export let navTemplate = (navInfo, deleteItem) => html`
 								html`<li><i class="ti-location-pin"></i> Store location</li>
 								<li><i class="ti-alarm-clock"></i> <a href="/daily-deals">Daily deal</a></li>
 								<li><i class="ti-power-off"></i><a href="/my-account">My Account</a></li>
-								<li><i class="ti-user"></i> <a href="/logout">logout</a></li>`
+								<li><i class="ti-user"></i> <a href="/logout">Logout</a></li>`
 								: 
 								html`<li><i class="ti-location-pin"></i> Store location</li>
 								<li><i class="ti-alarm-clock"></i> <a href="/daily-deals">Daily deal</a></li>
@@ -104,7 +104,7 @@ export let navTemplate = (navInfo, deleteItem) => html`
 											<span>Total</span>
 											<span class="total-amount">$${navInfo.totalPrice}</span>
 										</div>
-										<a href="checkout.html" class="btn animate">Checkout</a>
+										<a href="/checkout" class="btn animate">Checkout</a>
 									</div>
 								` 
 								: html`<p>No items in the cart...</p>`}
@@ -157,7 +157,7 @@ export let navTemplate = (navInfo, deleteItem) => html`
 														</ul>
 													</li>
 													
-													<li><a href="contact.html">Contact Us</a></li>
+													<li><a href="/contact">Contact Us</a></li>
 												</ul>
 										</div>
 									</div>

@@ -1,4 +1,4 @@
-import userService from "../../service/userService.js";
+import loginRegister from "../../service/loginRegister.js";
 import { registerTemplate } from "./registerTemplate.js";
 
 let form = undefined;
@@ -25,7 +25,7 @@ async function submitHandler(context, e){
             password
         }
 
-        let registerUser = await userService.register(form);
+        let registerUser = await loginRegister.register(form);
     context.page.redirect('/')
     }
 }

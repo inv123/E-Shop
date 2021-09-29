@@ -63,9 +63,7 @@ async function setActiveTab(context, e){
     
     if(e.target.dataset.toggle === 'tab'){
         let hash = e.target.href.split('#')[1];
-        console.log(hash);
         homepageInfo.currentTab = hash;
-        
     }
 }
 
