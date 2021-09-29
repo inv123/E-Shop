@@ -15,18 +15,20 @@ import checkoutPage from './pages/checkout/checkoutPage.js';
 import confirmOrderPage from './pages/confirmOrder/confirmOrderPage.js';
 import homepage from './pages/home/homepage.js';
 import myAccount from './pages/myAccount/myAccount.js';
+import modal from './modal/modal.js';
 
 
 let navCont = document.querySelector('header');
-let viewCont = document.querySelector('.view-page')
+let viewCont = document.querySelector('.view-page');
+let modalCont = document.querySelector('.modal-view');
 
-middleware.initialize(navCont, viewCont);
+middleware.initialize(navCont, viewCont, modalCont);
 
 page('/home', middleware.decorateContext, nav.getNav, homepage.getView);
 page('/login', middleware.decorateContext, loginNav.getLoginNav, loginPage.getView);
 page('/register', middleware.decorateContext, loginNav.getLoginNav, registerPage.getView);
 page('/logout', async (context) => {await localStorage.clear(); context.page.redirect('/')});
-page('/my-account', middleware.decorateContext, nav.getNav, myAccount.getView);
+page('/my-account', middleware.decorateContext, nav.getNav, myAccount.getView, modal.getModal);
 
 
 

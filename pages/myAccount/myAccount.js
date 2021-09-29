@@ -4,7 +4,7 @@ import { myAccountTemplate } from "./myAccountTemplate.js";
 let userId = localStorage.getItem('userId');
 let userDetails = {};
 
-async function getView(context){
+async function getView(context, next){
     let userDetailsRequest = await userServ.getUserDetails(userId);
     let boundUpdateUserDetails = updateUserDetails.bind(null, context);
     
@@ -21,7 +21,8 @@ async function getView(context){
         updateUserDetails: boundUpdateUserDetails
     }
 
-    context.renderView(myAccountTemplate(userDetails))
+    context.renderView(myAccountTemplate(userDetails));
+    next()
 }
 
 async function updateUserDetails(context, e){
@@ -53,6 +54,7 @@ async function updateUserDetails(context, e){
     let updateReq = await userServ.updateUserDetails(userId, userDetails)
 
     console.log(updateReq);
+    
 }
 
 export default{
