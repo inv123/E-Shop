@@ -165,5 +165,7 @@ export let checkoutTemplate = (checkoutInfo) => html`
 			</div>
 		</section>
 
+		
+
        
 `;

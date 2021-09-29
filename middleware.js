@@ -2,17 +2,16 @@ import {render} from './node_modules/lit-html/lit-html.js';
 
 let navCont = undefined;
 let viewContainer = undefined;
-let modalContainer = undefined;
+let modalCont = undefined;
 
 function initialize(navElement,viewElemenet, modalElement){
     navCont = navElement;
     viewContainer = viewElemenet;
-    modalContainer = modalElement;
-
+    modalCont= modalElement;
 }
 
 async function renderModal(template){
-    render(template, modalContainer)
+    render(template, modalCont)
 }
 
 async function renderView(template){

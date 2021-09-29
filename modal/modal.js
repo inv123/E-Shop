@@ -1,9 +1,9 @@
 import { modalTemplate } from "./modalTemplate.js";
 
-async function getModal(context){
-    context.renderModal(modalTemplate())
+async function createModal(context, message){
+    context.renderModal(modalTemplate(message))
 }
 
 export default{
-    getModal
+    createModal
 }

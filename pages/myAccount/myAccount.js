@@ -26,6 +26,7 @@ async function getView(context, next){
 }
 
 async function updateUserDetails(context, e){
+    
     e.preventDefault();
 
     let formData = new FormData(e.target);
@@ -51,7 +52,8 @@ async function updateUserDetails(context, e){
         postCode
     }
 
-    let updateReq = await userServ.updateUserDetails(userId, userDetails)
+    let updateReq = await userServ.updateUserDetails(userId, userDetails);
+ 
 
     console.log(updateReq);
     
