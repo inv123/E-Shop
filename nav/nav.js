@@ -11,7 +11,7 @@ async function getNav(context, next){
     let itemsInCart = undefined;
     if(itemsInCartReq){
         itemsInCart = Object.values(itemsInCartReq);
-        console.log(itemsInCart);
+        
     }
     let itemCount = 0;
     let totalPrice = 0;

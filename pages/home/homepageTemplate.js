@@ -1,7 +1,7 @@
 import { ifDefined } from '../../node_modules/lit-html/directives/if-defined.js';
 import {html} from '../../node_modules/lit-html/lit-html.js'
 
-export let homepageTemplate = (homepageInfo) => html`
+export let homepageTemplate = (homepageInfo, addCart) => html`
 	<section class="hero-slider" >
 		<!-- Single Slider -->
 		<div class="single-slider" style="padding-top:100px">
@@ -92,11 +92,11 @@ export let homepageTemplate = (homepageInfo) => html`
 							<div class="nav-main">
 								<!-- Tab Nav -->
 								<ul class="nav nav-tabs" id="myTab" role="tablist" @click=${homepageInfo.setActiveTab}>
-									<li class="nav-item"><a class="nav-link ${ifDefined(homepageInfo.currentTab === 'man' ? 'active' : '')}" data-toggle="tab" href="/home/#man" role="tab">Man</a></li>
-									<li class="nav-item"><a class="nav-link ${ifDefined(homepageInfo.currentTab === 'woman' ? 'active' : '')}" data-toggle="tab" href="/home/#woman" role="tab">Woman</a></li>
-									<li class="nav-item"><a class="nav-link ${ifDefined(homepageInfo.currentTab === 'kids' ? 'active' : '')}" data-toggle="tab" href="/home/#kids" role="tab" >Kids</a></li>
-									<li class="nav-item"><a class="nav-link ${ifDefined(homepageInfo.currentTab === 'accessories' ? 'active' : '')}" data-toggle="tab" href="/home/#accessories" role="tab">Accessories</a></li>
-									<li class="nav-item"><a class="nav-link ${ifDefined(homepageInfo.currentTab === 'essential' ? 'active' : '')}" data-toggle="tab" href="/home/#essential" role="tab">Essential</a></li>
+									<li class="nav-item"><a class="nav-link ${ifDefined(homepageInfo.currentTab === 'man' ? 'active' : '')}" data-toggle="tab" href="/home#man" role="tab">Man</a></li>
+									<li class="nav-item"><a class="nav-link ${ifDefined(homepageInfo.currentTab === 'woman' ? 'active' : '')}" data-toggle="tab" href="/home#woman" role="tab">Woman</a></li>
+									<li class="nav-item"><a class="nav-link ${ifDefined(homepageInfo.currentTab === 'kids' ? 'active' : '')}" data-toggle="tab" href="/home#kids" role="tab" >Kids</a></li>
+									<li class="nav-item"><a class="nav-link ${ifDefined(homepageInfo.currentTab === 'accessories' ? 'active' : '')}" data-toggle="tab" href="/home#accessories" role="tab">Accessories</a></li>
+									<li class="nav-item"><a class="nav-link ${ifDefined(homepageInfo.currentTab === 'essential' ? 'active' : '')}" data-toggle="tab" href="/home#essential" role="tab">Essential</a></li>
 									
 								</ul>
 								<!--/ End Tab Nav -->
@@ -107,7 +107,7 @@ export let homepageTemplate = (homepageInfo) => html`
 									<div class="tab-single">
 										<div class="row">
 											
-												${homepageInfo.manProducts ? homepageInfo.manProducts.map(x => singleProduct(x)) : html`<h5>No items...</h5>`}
+												${homepageInfo.manProducts ? homepageInfo.manProducts.map(x => singleProduct(x, addCart)) : html`<h5>No items...</h5>`}
 											
 										</div>
 									</div>
@@ -249,9 +249,10 @@ export let homepageTemplate = (homepageInfo) => html`
 
 `;
 
-let singleProduct = (product) => html`
+let singleProduct = (product, addCart) => html`
                                             <div class="col-xl-3 col-lg-4 col-md-4 col-12"></div>
                                                 <div class="single-product">
+                                                    <div class="fade" data-id=${product.id} data-image=${product.imageUrl} data-price=${product.price} data-description=${product.description} data-title=${product.title}></div>
 													<div class="product-img">
 														<a href="product-details.html">
 															<img class="default-img" src="${product.imageUrl}" alt="#">
@@ -259,7 +260,7 @@ let singleProduct = (product) => html`
 														</a>
 														<div class="button-head">
 															<div class="product-action-2">
-																<a title="Add to cart" href="javascript:void(0)">Add to cart</a>
+																<a title="Add to cart" href="javascript:void(0)" @click=${addCart}>Add to cart</a>
 															</div>
 														</div>
 													</div>

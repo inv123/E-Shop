@@ -4,6 +4,10 @@ import { homepageTemplate } from "./homepageTemplate.js";
 let homepageInfo = {
     currentTab: 'man'
 };
+let userId = localStorage.getItem('userId');
+
+
+
 
 async function getView(context){
     //FirstSection
@@ -24,14 +28,14 @@ async function getView(context){
     if(womanProductsReq){
         let womanProducts = Object.values(womanProductsReq);
         homepageInfo.womanProducts = womanProducts;
-        console.log(homepageInfo.womanProducts);
+        
     }
 
     let kidsProductsReq = await productServices.getKidsProducts();
     if(kidsProductsReq){
         let kidsProducts = Object.values(kidsProductsReq);
         homepageInfo.kidsProducts = kidsProducts;
-        console.log(homepageInfo.kidsProducts);
+        
     }
 
     let accessoriesProductsReq = await productServices.getAccessoriesProducts();
@@ -45,11 +49,12 @@ async function getView(context){
     if(essentialsProductsReq){
         let essentialsProducts = Object.values(essentialsProductsReq);
         homepageInfo.essentialsProducts = essentialsProducts;
-        
     }
+
+    let boundAddToCart = addCart.bind(null, context);
+
     
-    
-    context.renderView(homepageTemplate(homepageInfo));
+    context.renderView(homepageTemplate(homepageInfo, boundAddToCart));
 }
 
 //Third Seciton
@@ -57,13 +62,28 @@ async function getView(context){
 async function setActiveTab(context, e){
     
     if(e.target.dataset.toggle === 'tab'){
-        let hash = e.target.href.split('#')[1]
-       homepageInfo.currentTab = hash;
-       context.renderView(homepageTemplate(homepageInfo))
+        let hash = e.target.href.split('#')[1];
+        console.log(hash);
+        homepageInfo.currentTab = hash;
+        
     }
 }
 
-async function addToCart
+async function addCart(context, e){
+    let dataElement = e.target.closest('.single-product').querySelector('div');
+    let id = dataElement.dataset.id;
+    let imageUrl = dataElement.dataset.image;
+    let description = dataElement.dataset.description;
+    let price = Number(dataElement.dataset.price);
+    let title = dataElement.dataset.title;
+    let count = 1;
+    let totalPrice = price;
+
+    let req = await productServices.addToCartProduct(userId, count, price, description, imageUrl, title, id, totalPrice)
+    context.page.redirect(context.path)
+}
+
+
 
 
 
