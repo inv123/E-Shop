@@ -1,8 +1,10 @@
+import modal from "../../modal/modal.js";
 import userServ from "../../service/userServ.js";
 import { myAccountTemplate } from "./myAccountTemplate.js";
 
 let userId = localStorage.getItem('userId');
 let userDetails = {};
+let modalInfo = false;
 
 async function getView(context, next){
     let userDetailsRequest = await userServ.getUserDetails(userId);
@@ -53,11 +55,35 @@ async function updateUserDetails(context, e){
     }
 
     let updateReq = await userServ.updateUserDetails(userId, userDetails);
- 
+    if(updateReq){
+        let modalDom = e.target.closest('body').querySelector('.modal');
+        let viewCont = e.target.closest('body').querySelector('.view-page');
+        let navCont = e.target.closest('body').querySelector('header');
+        let footer = e.target.closest('body').querySelector('footer')
+        viewCont.style.filter = 'blur(4px)';
+        navCont.style.filter = 'blur(4px)';
+        footer.style.filter = 'blur(4px)';
+        modalDom.style.display = 'block';
+        context.params.modal = true;
+        let modalEleShow = await modal.createModal(context);
+       
+        let modalFade = setTimeout(async function(){
+            viewCont.style.filter = 'blur(0)';
+            navCont.style.filter = 'blur(0)';
+            footer.style.filter = 'blur(0)';
 
-    console.log(updateReq);
+            modalDom.style.display = 'none';
+            context.params.modal = false;
+            let modalEleHide = await modal.createModal(context);
+        },4000)
+
+    }
+
     
+
 }
+
+
 
 export default{
     getView,
