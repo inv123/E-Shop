@@ -16,6 +16,7 @@ import confirmOrderPage from './pages/confirmOrder/confirmOrderPage.js';
 import homepage from './pages/home/homepage.js';
 import myAccount from './pages/myAccount/myAccount.js';
 import modal from './modal/modal.js';
+import contact from './pages/contact/contact.js';
 
 
 let navCont = document.querySelector('header');
@@ -29,7 +30,7 @@ page('/login', middleware.decorateContext, loginNav.getLoginNav, loginPage.getVi
 page('/register', middleware.decorateContext, loginNav.getLoginNav, registerPage.getView);
 page('/logout', async (context) => {await localStorage.clear(); context.page.redirect('/')});
 page('/my-account', middleware.decorateContext, nav.getNav, myAccount.getView, modal.createModal);
-
+page('/contact', middleware.decorateContext, nav.getNav, contact.getView);
 
 
 page('/item/:id', middleware.decorateContext, nav.getNav, singleItemPage.getView);

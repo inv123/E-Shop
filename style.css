@@ -5156,3 +5156,7 @@
 .single-product{
 	max-width: 24%;
 }
+
+.mapouter{
+	margin: 50px auto;
+}
