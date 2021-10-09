@@ -19,6 +19,7 @@ import modal from './modal/modal.js';
 import contact from './pages/contact/contact.js';
 
 
+
 let navCont = document.querySelector('header');
 let viewCont = document.querySelector('.view-page');
 let modalCont = document.querySelector('.modal-box');

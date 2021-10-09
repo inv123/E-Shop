@@ -1,5 +1,5 @@
 import {html} from '../node_modules/lit-html/lit-html.js';
-
+import logoImage from '../images/logo.png'
 
 //TO DO ... ALL NAV MENU !!!!
 export let navTemplate = (navInfo, deleteItem) => html`
@@ -48,7 +48,7 @@ export let navTemplate = (navInfo, deleteItem) => html`
 					<div class="col-lg-2 col-md-2 col-12">
 						<!-- Logo -->
 						<div class="logo">
-							<a href="/home"><img src="images/logo.png" alt="logo"></a>
+							<a href="/home"><img src="${logoImage}" alt="logo"></a>
 						</div>
 						<!--/ End Logo -->
 						<!-- Search Form -->
