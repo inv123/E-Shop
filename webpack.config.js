@@ -1,46 +1,42 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
+
 module.exports = {
     mode: "development",
     entry: {
-        'app': '/app.js',
-        'style': '/style.css'
+        app: '/app.js',
+        css: ['/style.css', '/css/animate.css', '/css/bootstrap.css', '/css/flex-slider.min.css']
     },
     output: {
-        filename: "[name].js",
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].js',
     },
     devServer: {
         port: 9000,
-        
         compress: true,
-        open: true,
+        historyApiFallback: true,
         hot: true,
-        inline: true,
-        watchContentBase: true,
-        historyApiFallback: {
-            index: '/',
-            disableDotRule: true,
-        },
+       
+        open: true,
+        static: {
+            directory: path.resolve(__dirname)
+        }
     },
-    devtool: 'eval-source-map',
-    plugins: [
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: 'index.html'
-        })
-    ], 
+    plugins: [new HtmlWebpackPlugin({
+        inject: true,
+        template: 'index.html',
+        favicon: './images/favicon.png',
+        
+    })],
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
-              },
-              {
-                test: /\.(png|jpe?g|gif|eot|svg|ttf|woff|woff2)$/i,
-                type: 'asset'
-              },
+                exclude: '/node_modules',
+                use: ['style-loader', 'css-loader']
+            },
+            
         ]
     }
 }
