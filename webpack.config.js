@@ -13,7 +13,7 @@ module.exports = {
     },
     devServer: {
         port: 9000,
-        contentBase: path.resolve(__dirname, 'dist'),
+        
         compress: true,
         open: true,
         hot: true,
@@ -35,7 +35,7 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+                use: ['style-loader', 'css-loader'],
               },
               {
                 test: /\.(png|jpe?g|gif|eot|svg|ttf|woff|woff2)$/i,
