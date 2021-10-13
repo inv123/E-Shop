@@ -30,7 +30,8 @@ module.exports = {
         }
     },
     performance: {
-        maxAssetSize: 100000,
+        maxAssetSize: 100000000,
+        maxEntrypointSize: 400000000,
       },
     plugins: [new HtmlWebpackPlugin({
         inject: true,
