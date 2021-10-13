@@ -58,8 +58,9 @@ async function deleteItem(context, e){
     let productId = e.target.closest('tr').dataset.id;
     let req = await productServices.deleteItem(userId, productId);
 
+    
     if(req === null){
-        context.page.redirect(context.path);
+       
         
         let modalDom = e.target.closest('body').querySelector('.modal');
         let viewCont = e.target.closest('body').querySelector('.view-page');
@@ -71,6 +72,8 @@ async function deleteItem(context, e){
         modalDom.style.display = 'block';
         context.params.modal = true;
         let modalEleShow = await modal.createModal(context);
+           
+        
        
         let modalFade = setTimeout(async function(){
             viewCont.style.filter = 'blur(0)';
@@ -80,12 +83,19 @@ async function deleteItem(context, e){
             modalDom.style.display = 'none';
             context.params.modal = false;
             let modalEleHide = await modal.createModal(context);
+            if(context.params.modal == false){
+                context.page.redirect(context.path);
+            }
         },2000)
 
-     
+        if(context.params.modal == false){
+            context.page.redirect(context.path);
+        }
+        
+        
     }
    
-
+   
     
 }
 

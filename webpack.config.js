@@ -3,7 +3,7 @@ const path = require('path');
 
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: {
         app: '/app.js',
         css: ['/style.css', '/css/animate.css', '/css/bootstrap.css', '/css/flex-slider.min.css']
@@ -29,6 +29,9 @@ module.exports = {
             chunks: 'all'
         }
     },
+    performance: {
+        maxAssetSize: 100000,
+      },
     plugins: [new HtmlWebpackPlugin({
         inject: true,
         template: 'index.html',

@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "firebase": "^9.1.2",
     "http-server": "^13.0.1",
     "lit-html": "^1.4.1",
     "page": "^1.11.6"
