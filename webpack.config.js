@@ -17,26 +17,34 @@ module.exports = {
         compress: true,
         historyApiFallback: true,
         hot: true,
-       
+
         open: true,
         static: {
             directory: path.resolve(__dirname)
         }
     },
+    devtool: 'eval-source-map',
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    },
     plugins: [new HtmlWebpackPlugin({
         inject: true,
         template: 'index.html',
-        favicon: './images/favicon.png',
-        
+        favicon: './images/favicon.svg',
+
     })],
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.css$/,
                 exclude: '/node_modules',
                 use: ['style-loader', 'css-loader']
             },
-            
+            {
+                test: /\.(png|jpeg|gif|svg)$/i,
+                type: 'asset'
+            }
         ]
     }
 }

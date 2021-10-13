@@ -1,7 +1,7 @@
 import {html} from '../node_modules/lit-html/lit-html.js';
 
 
-//TO DO ... ALL NAV MENU !!!!
+
 export let navTemplate = (navInfo, deleteItem) => html`
 <header class="header shop">
 		<!-- Topbar -->
@@ -13,7 +13,7 @@ export let navTemplate = (navInfo, deleteItem) => html`
 						<div class="top-left">
 							<ul class="list-main">
 								<li><i class="ti-headphone-alt"></i> +060 (800) 801-582</li>
-								<li><i class="ti-email"></i> support@shophub.com</li>
+								<li><i class="ti-email"></i> support@loremipsum.com</li>
 							</ul>
 						</div>
 						<!--/ End Top Left -->
@@ -48,7 +48,7 @@ export let navTemplate = (navInfo, deleteItem) => html`
 					<div class="col-lg-2 col-md-2 col-12">
 						<!-- Logo -->
 						<div class="logo">
-							<a href="/home"><img src="../images/logo.png" alt="logo"></a>
+							<a href="/home"><img src="../images/logo.svg" alt="logo"></a>
 						</div>
 						<!--/ End Logo -->
 						<!-- Search Form -->

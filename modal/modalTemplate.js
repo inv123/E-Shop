@@ -13,7 +13,7 @@ export let modalTemplate = (modalInfo) => html`
 							<div class="col-lg-6 offset-lg-3 col-12">
 								
 								<h3 style="font-size:30px;color:#333;">Success<h3>
-								<p style="display:block; margin-top:20px; color:#888; font-size:14px; font-weight:400;">Your order has been placed successfully! You will recieve email with shipping tracking number so you can check your order.</p>
+								<p style="display:block; margin-top:20px; color:#888; font-size:14px; font-weight:400;">${modalInfo.modalText}</p>
 								<div class="button" style="margin-top:30px;">
                                 
                                 <a href="javascript:void(0)" @click=${modalInfo.closeWindow}><span class="ti-close" aria-hidden="true"></span></a>

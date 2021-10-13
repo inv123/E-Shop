@@ -13,7 +13,7 @@ async function login(userLogin){
     })
 
     let res = await req.json();
-    console.log(res);
+    
     localStorage.setItem('authToken', res.idToken);
     localStorage.setItem('email', res.email);
     localStorage.setItem('userId', res.localId);

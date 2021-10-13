@@ -55,6 +55,7 @@ async function updateUserDetails(context, e){
     }
 
     let updateReq = await userServ.updateUserDetails(userId, userDetails);
+    
     if(updateReq){
         let modalDom = e.target.closest('body').querySelector('.modal');
         let viewCont = e.target.closest('body').querySelector('.view-page');
@@ -75,7 +76,7 @@ async function updateUserDetails(context, e){
             modalDom.style.display = 'none';
             context.params.modal = false;
             let modalEleHide = await modal.createModal(context);
-        },4000)
+        },2000)
 
     }
 

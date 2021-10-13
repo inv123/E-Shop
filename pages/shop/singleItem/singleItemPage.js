@@ -51,11 +51,11 @@ async function addToCart(context, e){
     let imageUrl = currentProductInfo.imageUrl;
     let title = currentProductInfo.title;
     let totalPrice = Number(counter) * Number(price);
-    console.log(totalPrice);
+   
     
     
     let req = await productServices.addToCartProduct(userId, counter, price, description, imageUrl, title, productId, totalPrice);
-    console.log(req);
+    
     
     context.page.redirect(context.path)
     

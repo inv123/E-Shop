@@ -41,7 +41,7 @@ page('/shop', middleware.decorateContext, nav.getNav, shopPage.getView);
 page('/shop/price/:priceRange', middleware.decorateContext, nav.getNav, filterShop.getView);
 page('/shop/price/:priceRange/:sort', middleware.decorateContext, nav.getNav, sortFilterPage.getView);
 page('/shop/:sort', middleware.decorateContext, nav.getNav, sortMainShopPage.getView);
-page('/cart', middleware.decorateContext, nav.getNav, cartPage.getView);
+page('/cart', middleware.decorateContext, nav.getNav, cartPage.getView, modal.createModal);
 page('/order/confirm/:orderName', middleware.decorateContext,loginNav.getLoginNav, confirmOrderPage.getView);
 page('/checkout', middleware.decorateContext, nav.getNav, checkoutPage.getView);
 

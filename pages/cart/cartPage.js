@@ -1,10 +1,12 @@
 import productServices from "../../service/productServices.js";
 import { cartTemplate } from "./cartTemplate.js";
+import modal from '../../modal/modal.js';
 
+let modalInfo = false;
 let products = undefined;
 let userId = localStorage.getItem('userId');
 
-async function getView(context){
+async function getView(context, next){
 
     let myProductsResponse = await productServices.getCartProducts(userId);
     let myProducts = undefined;
@@ -16,7 +18,8 @@ async function getView(context){
    
     products = myProducts;
     
-    context.renderView(cartTemplate(products, boundPlusMinus, boundDeleteHandler))
+    context.renderView(cartTemplate(products, boundPlusMinus, boundDeleteHandler));
+    next();
 }
 
 async function plusMinus(context, e){
@@ -55,7 +58,35 @@ async function deleteItem(context, e){
     let productId = e.target.closest('tr').dataset.id;
     let req = await productServices.deleteItem(userId, productId);
 
-    context.page.redirect(context.path)
+    if(req === null){
+        context.page.redirect(context.path);
+        
+        let modalDom = e.target.closest('body').querySelector('.modal');
+        let viewCont = e.target.closest('body').querySelector('.view-page');
+        let navCont = e.target.closest('body').querySelector('header');
+        let footer = e.target.closest('body').querySelector('footer')
+        viewCont.style.filter = 'blur(4px)';
+        navCont.style.filter = 'blur(4px)';
+        footer.style.filter = 'blur(4px)';
+        modalDom.style.display = 'block';
+        context.params.modal = true;
+        let modalEleShow = await modal.createModal(context);
+       
+        let modalFade = setTimeout(async function(){
+            viewCont.style.filter = 'blur(0)';
+            navCont.style.filter = 'blur(0)';
+            footer.style.filter = 'blur(0)';
+
+            modalDom.style.display = 'none';
+            context.params.modal = false;
+            let modalEleHide = await modal.createModal(context);
+        },2000)
+
+     
+    }
+   
+
+    
 }
 
 

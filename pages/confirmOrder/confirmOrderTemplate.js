@@ -61,7 +61,7 @@ export let confirmTemplate = (orderInfo) => html`
                                    
                                     <tr class="border-top border-bottom">
                                         <td>
-                                            <div class="text-left"> <span class="font-weight-bold">Subtotal</span> </div>
+                                            <div class="text-left"> <span class="font-weight-bold">Grand Total</span> </div>
                                         </td>
                                         <td>
                                             <div class="text-right"> <span class="font-weight-bold">$${!orderInfo.shipping ? orderInfo.subtotal : orderInfo.subtotal + orderInfo.shipping}</span> </div>
@@ -72,9 +72,9 @@ export let confirmTemplate = (orderInfo) => html`
                         </div>
                     </div>
                     <p>We will be sending shipping confirmation email when the item shipped successfully!</p>
-                    <p class="font-weight-bold mb-0">Thanks for shopping with us!</p> <span>Eshop</span>
+                    <p class="font-weight-bold mb-0">Thanks for shopping with us!</p> <span>Lorem Ipsum</span>
                 </div>
-                <div class="d-flex justify-content-between footer p-3"> <span>Need Help? visit our <a href="#"> help center</a></span> <span>${orderInfo.currentDate}</span> </div>
+                <div class="d-flex justify-content-between footer p-3"> <span>Need Help? visit our <a href="/help"> help center</a></span> <span>${orderInfo.currentDate}</span> </div>
             </div>
             
         </div>
