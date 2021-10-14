@@ -1,5 +1,7 @@
 import {html} from '../../node_modules/lit-html/lit-html.js';
 
+import paymentImage from '../../images/payment-method.png'
+
 export let checkoutTemplate = (checkoutInfo) => html`
 	<section class="shop checkout section">
 			<div class="container">
@@ -101,7 +103,7 @@ export let checkoutTemplate = (checkoutInfo) => html`
 							<!-- Payment Method Widget -->
 							<div class="single-widget payement">
 								<div class="content">
-									<img src="images/payment-method.png" alt="#">
+									<img src="${paymentImage}" alt="#">
 								</div>
 							</div>
 							<!--/ End Payment Method Widget -->
