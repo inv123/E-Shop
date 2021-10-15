@@ -6,7 +6,12 @@ module.exports = {
     mode: "production",
     entry: {
         app: '/app.js',
-        css: ['/style.css', '/css/animate.css', '/css/bootstrap.css', '/css/flex-slider.min.css', '/css/themify-icons.css', '/css/font-awesome.css', '/css/nice-select.css', '/css/niceselect.css', '/css/slicknav.min.css']
+        css: ['/style.css',  '/css/flex-slider.min.css', '/css/themify-icons.css'],
+        bootstrap: '/css/bootstrap.css',
+        animate: '/css/animate.css',
+        fontAwesome: '/css/font-awesome.css',
+        niceSelect: ['/css/nice-select.css', '/css/niceselect.css'],
+        slicknav: '/css/slicknav.min.css'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
