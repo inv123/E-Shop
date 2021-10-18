@@ -81,7 +81,7 @@ export let homepageTemplate = (homepageInfo, addCart) => html`
 	<!-- End Small Banner -->
 	
 	<!-- Start Product Area -->
-    <div class="product-area section">
+    <div class="product-area section" style="padding: 100px 0;">
             <div class="container">
 				<div class="row">
 					<div class="col-12">
