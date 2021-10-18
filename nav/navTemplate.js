@@ -22,7 +22,7 @@ export let navTemplate = (navInfo, deleteItem) => html`
 						<!-- Top Right -->
 						<div class="right-content">
 							<ul class="list-main">
-								${localStorage.getItem('authToken')
+								${sessionStorage.getItem('authToken')
 								? 
 								html`<li><i class="ti-location-pin"></i> Store location</li>
 								<li><i class="ti-alarm-clock"></i> <a href="/daily-deals">Daily deal</a></li>
@@ -76,7 +76,7 @@ export let navTemplate = (navInfo, deleteItem) => html`
 							</div>
 						</div>
 					</div>
-					${localStorage.getItem('authToken') 
+					${sessionStorage.getItem('authToken') 
 					? html`<div class="col-lg-2 col-md-3 col-12">
 						<div class="right-bar">
 							<!-- Search Form -->
