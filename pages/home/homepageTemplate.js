@@ -175,7 +175,7 @@ export let homepageTemplate = (homepageInfo, addCart) => html`
 				<!-- Single Banner  -->
 				<div class="col-lg-6 col-md-6 col-12">
 					<div class="single-banner">
-						<img src="https://www.apetogentleman.com/wp-content/uploads/2018/07/skin-tone-colours-1160x677.jpg" alt="#">
+						<img src="https://threadcurve.com/wp-content/uploads/2020/06/man-in-a-black-suit-june102020.jpg" alt="#">
 						<div class="content">
 							<p>Man's Collectons</p>
 							<h3>Man's items <br>Up to<span> 50%</span></h3>
