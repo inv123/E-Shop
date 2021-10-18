@@ -8,7 +8,9 @@ let shopInfo = {
 // Shop Page
 async function getView(context) {
     let query = context.params.query;    
-    let searchedProducts = await productServices.getFilteredProductsByTitle(query);    
+    
+    let searchedProducts = await productServices.getFilteredProductsByTitle(query); 
+      
     shopInfo.products = Object.values(searchedProducts);
     context.renderView(searchShopTemplate(shopInfo));
 }

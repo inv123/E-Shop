@@ -11,7 +11,8 @@ module.exports = {
         animate: '/css/animate.css',
         fontAwesome: '/css/font-awesome.css',
         niceSelect: ['/css/nice-select.css', '/css/niceselect.css'],
-        slicknav: '/css/slicknav.min.css'
+        slicknav: '/css/slicknav.min.css',
+        
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

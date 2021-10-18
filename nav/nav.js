@@ -40,9 +40,9 @@ async function search(context, e){
     e.preventDefault();
 
     let formData = new FormData(e.target);
-    let searchTerm = formData.get('search').trim();
-
-    context.page.redirect(`/search/${searchTerm}`)
+    let searchTerm = formData.get('search');
+   
+    context.page.redirect(`/search/${searchTerm}`);
 }
 
 async function deleteItem(context, e){

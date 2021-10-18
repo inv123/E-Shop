@@ -29,7 +29,7 @@ middleware.initialize(navCont, viewCont, modalCont);
 page('/home', middleware.decorateContext, nav.getNav, homepage.getView);
 page('/login', middleware.decorateContext, loginNav.getLoginNav, loginPage.getView);
 page('/register', middleware.decorateContext, loginNav.getLoginNav, registerPage.getView);
-page('/logout', async (context) => {await localStorage.clear(); context.page.redirect('/')});
+page('/logout', async (context) => {await sessionStorage.clear(); context.page.redirect('/')});
 page('/my-account', middleware.decorateContext, nav.getNav, myAccount.getView, modal.createModal);
 page('/contact', middleware.decorateContext, nav.getNav, contact.getView);
 

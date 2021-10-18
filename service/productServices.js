@@ -52,7 +52,14 @@ async function getFilteredProducts(start, end){
 }
 
 async function getFilteredProductsByTitle(title){
-    let query = `?orderBy="title"&equalTo="${title}"`;
+    let query = '';
+    if(title.split(' ').length === 1){
+         query = `?orderBy="title"&equalTo="${title}"`;
+    }else{
+        query = `?orderBy="title"&equalTo="${title}"`;
+
+    }
+    
 
     let req = await fetch(baseUrl + `/products.json` + query);
     return req.json();
