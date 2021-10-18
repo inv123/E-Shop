@@ -42,7 +42,7 @@ export let homepageTemplate = (homepageInfo, addCart) => html`
 				<!-- Single Banner  -->
 				<div class="col-lg-4 col-md-6 col-12">
 					<div class="single-banner">
-						<img src="${man}" alt="man" >
+						<img src="${man}" alt="man" loading="lazy">
 						<div class="content">
 							<p>Man's Collectons</p>
 							<h3>Summer travel <br> collection</h3>
@@ -54,7 +54,7 @@ export let homepageTemplate = (homepageInfo, addCart) => html`
 				<!-- Single Banner  -->
 				<div class="col-lg-4 col-md-6 col-12">
 					<div class="single-banner">
-						<img src="${bag}" >
+						<img src="${bag}" loading="lazy">
 						<div class="content">
 							<p>Bag Collectons</p>
 							<h3>Awesome Bag <br> 2020</h3>
@@ -66,7 +66,7 @@ export let homepageTemplate = (homepageInfo, addCart) => html`
 				<!-- Single Banner  -->
 				<div class="col-lg-4 col-12">
 					<div class="single-banner tab-height">
-						<img src="${woman}" alt="woman" >
+						<img src="${woman}" alt="woman" loading="lazy">
 						<div class="content">
 							<p>Flash Sale</p>
 							<h3>Mid Season <br> Up to <span>40%</span> Off</h3>
@@ -179,7 +179,7 @@ export let homepageTemplate = (homepageInfo, addCart) => html`
 				<!-- Single Banner  -->
 				<div class="col-lg-6 col-md-6 col-12">
 					<div class="single-banner">
-						<img src="${man}" alt="#">
+						<img src="${man}" alt="man" loading="lazy">
 						<div class="content">
 							<p>Man's Collectons</p>
 							<h3>Man's items <br>Up to<span> 50%</span></h3>
@@ -191,7 +191,7 @@ export let homepageTemplate = (homepageInfo, addCart) => html`
 				<!-- Single Banner  -->
 				<div class="col-lg-6 col-md-6 col-12">
 					<div class="single-banner">
-						<img src="${woman}" alt="#">
+						<img src="${woman}" alt="woman" loading="lazy">
 						<div class="content">
 							<p>shoes women</p>
 							<h3>mid season <br> up to <span>70%</span></h3>
