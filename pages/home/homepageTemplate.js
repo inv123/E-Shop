@@ -1,5 +1,9 @@
 import { ifDefined } from '../../node_modules/lit-html/directives/if-defined.js';
-import {html} from '../../node_modules/lit-html/lit-html.js'
+import {html} from '../../node_modules/lit-html/lit-html.js';
+
+import man from '../../images/man.jpg';
+import woman from '../../images/woman.jpg';
+import bag from '../../images/bag.jpg';
 
 export let homepageTemplate = (homepageInfo, addCart) => html`
 	<section class="hero-slider" >
@@ -38,7 +42,7 @@ export let homepageTemplate = (homepageInfo, addCart) => html`
 				<!-- Single Banner  -->
 				<div class="col-lg-4 col-md-6 col-12">
 					<div class="single-banner">
-						<img src="https://stylecaster.com/wp-content/uploads/2018/12/GettyImages-914704910-copy.jpg" alt="man" >
+						<img src="${man}" alt="man" >
 						<div class="content">
 							<p>Man's Collectons</p>
 							<h3>Summer travel <br> collection</h3>
@@ -50,7 +54,7 @@ export let homepageTemplate = (homepageInfo, addCart) => html`
 				<!-- Single Banner  -->
 				<div class="col-lg-4 col-md-6 col-12">
 					<div class="single-banner">
-						<img src="https://www.thecoolector.com/wp-content/uploads/2018/11/activcargo-1050x700.jpg" alt="bag" >
+						<img src="${bag}" >
 						<div class="content">
 							<p>Bag Collectons</p>
 							<h3>Awesome Bag <br> 2020</h3>
@@ -62,7 +66,7 @@ export let homepageTemplate = (homepageInfo, addCart) => html`
 				<!-- Single Banner  -->
 				<div class="col-lg-4 col-12">
 					<div class="single-banner tab-height">
-						<img src="http://spice4life.co.za/wp-content/uploads/2015/11/Business-Dress-for-Women-2012.jpg" alt="woman" >
+						<img src="${woman}" alt="woman" >
 						<div class="content">
 							<p>Flash Sale</p>
 							<h3>Mid Season <br> Up to <span>40%</span> Off</h3>
@@ -175,7 +179,7 @@ export let homepageTemplate = (homepageInfo, addCart) => html`
 				<!-- Single Banner  -->
 				<div class="col-lg-6 col-md-6 col-12">
 					<div class="single-banner">
-						<img src="https://threadcurve.com/wp-content/uploads/2020/06/man-in-a-black-suit-june102020.jpg" alt="#">
+						<img src="${man}" alt="#">
 						<div class="content">
 							<p>Man's Collectons</p>
 							<h3>Man's items <br>Up to<span> 50%</span></h3>
@@ -187,7 +191,7 @@ export let homepageTemplate = (homepageInfo, addCart) => html`
 				<!-- Single Banner  -->
 				<div class="col-lg-6 col-md-6 col-12">
 					<div class="single-banner">
-						<img src="https://miro.medium.com/max/1000/1*uCuxqurrraLC1ETVRGlMeA.jpeg" alt="#">
+						<img src="${woman}" alt="#">
 						<div class="content">
 							<p>shoes women</p>
 							<h3>mid season <br> up to <span>70%</span></h3>
