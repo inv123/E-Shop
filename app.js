@@ -26,7 +26,7 @@ let modalCont = document.querySelector('.modal-box');
 
 middleware.initialize(navCont, viewCont, modalCont);
 
-page('/home', middleware.decorateContext, nav.getNav, homepage.getView);
+page('/', middleware.decorateContext, nav.getNav, homepage.getView);
 page('/login', middleware.decorateContext, loginNav.getLoginNav, loginPage.getView);
 page('/register', middleware.decorateContext, loginNav.getLoginNav, registerPage.getView);
 page('/logout', async (context) => {await sessionStorage.clear(); context.page.redirect('/')});
@@ -45,7 +45,7 @@ page('/cart', middleware.decorateContext, nav.getNav, cartPage.getView, modal.cr
 page('/order/confirm/:orderName', middleware.decorateContext,loginNav.getLoginNav, confirmOrderPage.getView);
 page('/checkout', middleware.decorateContext, nav.getNav, checkoutPage.getView);
 
-page('/', '/home');
+page('/home', '/');
 page('/index.html', '/home')
 
 page.start();

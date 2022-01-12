@@ -5,6 +5,7 @@ let form = undefined;
 
 async function submitHandler(context, e){
     e.preventDefault();
+    
     let formData = new FormData(e.target)
 
     let email = formData.get('email');

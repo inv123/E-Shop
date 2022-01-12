@@ -1,5 +1,5 @@
-let loginUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCd_Sg66e-0i-g0-pRXhjIQuobRnH4sgzY';
-let registerUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCd_Sg66e-0i-g0-pRXhjIQuobRnH4sgzY'
+let loginUrl = 'https://identitytoolkit.googleapis.com/v3/accounts:signInWithPassword?key=AIzaSyCd_Sg66e-0i-g0-pRXhjIQuobRnH4sgzY';
+let registerUrl = 'https://identitytoolkit.googleapis.com/v3/accounts:signUp?key=AIzaSyCd_Sg66e-0i-g0-pRXhjIQuobRnH4sgzY'
 
 // Login
 async function login(userLogin){
@@ -14,9 +14,9 @@ async function login(userLogin){
 
     let res = await req.json();
     
-    sessionStorage.setItem('authToken', res.idToken);
-    sessionStorage.setItem('email', res.email);
-    sessionStorage.setItem('userId', res.localId);
+    localStorage.setItem('authToken', res.idToken);
+    localStorage.setItem('email', res.email);
+    localStorage.setItem('userId', res.localId);
    
     return res;
 }
@@ -33,9 +33,9 @@ async function register(userRegister){
 
     let res = await req.json();
     
-    sessionStorage.setItem('authToken', res.idToken);
-    sessionStorage.setItem('email', res.email);
-    sessionStorage.setItem('userId', res.localId);
+    localStorage.setItem('authToken', res.idToken);
+    localStorage.setItem('email', res.email);
+    localStorage.setItem('userId', res.localId);
 }
 
 
